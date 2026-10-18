@@ -1,10 +1,11 @@
 # Migration/golden order. Readers first (harness shakedown), then the daily chain in data-dependency order.
 # Daily chain mutates VSAM: capture must run in sequence from the same db-reset baseline.
+# Format: JOB [accepted MAXCC]. POSTTRAN sets RC=4 when it rejects transactions (CBTRN02C line 229).
 READCARD
 READCUST
 READXREF
 READACCT
-POSTTRAN
+POSTTRAN 4
 INTCALC
 TRANREPT
 CREASTMT

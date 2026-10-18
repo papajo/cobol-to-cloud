@@ -39,7 +39,9 @@ make db-up / db-reset # Postgres via docker compose; reset to snapshot
 - Assembler/LE routines CardDemo calls are ported to COBOL in `legacy/runtime/` (CEE3ABD stub, COBDATFT port), divergences logged as risks.
 - One job migrated per PR: `job/<JCLNAME>`. PR must include green `make parity JOB=<name>`.
 - Golden is source of truth. Never edit golden/ by hand; re-record only via `make golden`, commit with reason.
-- Pinned business date `2022-07-18` (env `CD_BUSINESS_DATE`) for both legacy and modern runs.
+- Pinned clock (ADR 0005): business date `2022-07-18` (`CD_BUSINESS_DATE`), batch time `02:00:00.00` (`CD_BATCH_TIME`); legacy via `COB_CURRENT_DATE` set by jclrun, modern via injected `Clock`. Never read the wall clock.
+- Goldens of jobs that modify VSAM hash key-ordered unloads (`make legacy-unload`), never BDB files. Accepted MAXCC per job in `golden/jobs.txt`.
+- Business checks in `harness/checks/` are independent of the COBOL (e.g. `posttran_reconcile.py`) and must pass on legacy and modern output.
 - Numerics: signed zoned → `codec.ZonedDecimal`, COMP-3 → `codec.PackedDecimal`. Money: `BigDecimal` only; scale from PIC clause; rounding mode must match COBOL (`ROUNDED` → HALF_UP, else DOWN/truncate). No `double`.
 - Ordering: compare keys in EBCDIC collation (`codec.EbcdicCollator`) wherever COBOL SORT/VSAM key order is observable.
 - Copybook is the schema: DDL and record classes are generated from `vendor/carddemo/app/cpy`, never hand-written.

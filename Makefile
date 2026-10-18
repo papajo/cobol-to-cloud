@@ -10,7 +10,7 @@ MVN ?= $(if $(shell command -v mvn),mvn,docker run --rm $(DUSER) \
 	-v $(CURDIR):/work -w /work -v $(CURDIR)/.cache/m2:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2 \
 	maven:3.9-eclipse-temurin-21 mvn -Duser.home=/var/maven)
 
-.PHONY: fetch inventory seed-data legacy-build legacy-load legacy-run golden golden-all modern-test parity db-up db-reset
+.PHONY: fetch inventory seed-data legacy-build legacy-load legacy-unload legacy-run golden golden-all modern-test parity db-up db-reset
 
 inventory:
 	python3 mapper/inventory.py vendor/carddemo/app docs
@@ -35,6 +35,10 @@ legacy-build:
 legacy-load:
 	docker run --rm -v $(CURDIR):/work $(IMG) python3 /work/legacy/vsam/load.py /work
 
+# IDCAMS REPRO-out equivalent: KSDS → key-ordered flat files in out/legacy/unload (hashable)
+legacy-unload:
+	docker run --rm -v $(CURDIR):/work $(IMG) python3 /work/legacy/vsam/unload.py /work
+
 legacy-run:
 	@test -n "$(JOB)" || (echo "JOB=<member> required" && exit 1)
 	@mkdir -p out/legacy && touch out/legacy/.runstart && sleep 1
@@ -42,11 +46,13 @@ legacy-run:
 		python3 /work/legacy/jcl-runner/jclrun.py /work/vendor/carddemo/app/jcl/$(JOB).jcl
 
 # Each golden starts from the seed baseline; the daily chain gets its own target later.
-golden: legacy-load legacy-run
-	python3 harness/capture.py $(JOB)
+# Accepted MAXCC per job: 2nd column of golden/jobs.txt (default 0)
+MAXRC = $(or $(shell awk '$$1=="$(JOB)"{print $$2}' golden/jobs.txt),0)
+golden: legacy-load legacy-run legacy-unload
+	python3 harness/capture.py $(JOB) --max-rc $(MAXRC)
 
 golden-all:
-	while read j; do $(MAKE) golden JOB=$$j || exit 1; done < golden/jobs.txt
+	grep -v '^#' golden/jobs.txt | while read j rc; do [ -n "$$j" ] && { $(MAKE) golden JOB=$$j || exit 1; }; done
 
 modern-test:
 	@mkdir -p .cache/m2

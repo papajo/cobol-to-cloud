@@ -1,0 +1,54 @@
+START OF EXECUTION OF PROGRAM CBTRN02C
+TCATBAL record not found for key : 00000000020030001.. Creating.
+TCATBAL record not found for key : 00000000013030001.. Creating.
+TCATBAL record not found for key : 00000000048030001.. Creating.
+TCATBAL record not found for key : 00000000022030001.. Creating.
+TCATBAL record not found for key : 00000000039030001.. Creating.
+TCATBAL record not found for key : 00000000044030001.. Creating.
+TCATBAL record not found for key : 00000000015030001.. Creating.
+TCATBAL record not found for key : 00000000043030001.. Creating.
+TCATBAL record not found for key : 00000000011030001.. Creating.
+TCATBAL record not found for key : 00000000008030001.. Creating.
+TCATBAL record not found for key : 00000000005030001.. Creating.
+TCATBAL record not found for key : 00000000030030001.. Creating.
+TCATBAL record not found for key : 00000000033030001.. Creating.
+TCATBAL record not found for key : 00000000002030001.. Creating.
+TCATBAL record not found for key : 00000000047030001.. Creating.
+TCATBAL record not found for key : 00000000032030001.. Creating.
+TCATBAL record not found for key : 00000000029030001.. Creating.
+TCATBAL record not found for key : 00000000045030001.. Creating.
+TCATBAL record not found for key : 00000000028030001.. Creating.
+TCATBAL record not found for key : 00000000006030001.. Creating.
+TCATBAL record not found for key : 00000000041030001.. Creating.
+TCATBAL record not found for key : 00000000042030001.. Creating.
+TCATBAL record not found for key : 00000000049030001.. Creating.
+TCATBAL record not found for key : 00000000025030001.. Creating.
+TCATBAL record not found for key : 00000000007030001.. Creating.
+TCATBAL record not found for key : 00000000018030001.. Creating.
+TCATBAL record not found for key : 00000000001030001.. Creating.
+TCATBAL record not found for key : 00000000026030001.. Creating.
+TCATBAL record not found for key : 00000000003030001.. Creating.
+TCATBAL record not found for key : 00000000010030001.. Creating.
+TCATBAL record not found for key : 00000000017030001.. Creating.
+TCATBAL record not found for key : 00000000050030001.. Creating.
+TCATBAL record not found for key : 00000000019030001.. Creating.
+TCATBAL record not found for key : 00000000037030001.. Creating.
+TCATBAL record not found for key : 00000000038030001.. Creating.
+TCATBAL record not found for key : 00000000046030001.. Creating.
+TCATBAL record not found for key : 00000000014030001.. Creating.
+TCATBAL record not found for key : 00000000012030001.. Creating.
+TCATBAL record not found for key : 00000000040030001.. Creating.
+TCATBAL record not found for key : 00000000035030001.. Creating.
+TCATBAL record not found for key : 00000000036030001.. Creating.
+TCATBAL record not found for key : 00000000024030001.. Creating.
+TCATBAL record not found for key : 00000000031030001.. Creating.
+TCATBAL record not found for key : 00000000021030001.. Creating.
+TCATBAL record not found for key : 00000000034030001.. Creating.
+TCATBAL record not found for key : 00000000016030001.. Creating.
+TCATBAL record not found for key : 00000000004030001.. Creating.
+TCATBAL record not found for key : 00000000027030001.. Creating.
+TCATBAL record not found for key : 00000000009030001.. Creating.
+TCATBAL record not found for key : 00000000023030001.. Creating.
+TRANSACTIONS PROCESSED :000000300
+TRANSACTIONS REJECTED  :000000038
+END OF EXECUTION OF PROGRAM CBTRN02C

@@ -33,11 +33,54 @@ def params(s):
     return dict(re.findall(r"(\w+)=(\([^)]*\)|'[^']*'|[^,]+)", s))
 
 
+GDG_CAT = DATA / ".gdg.json"   # {base: current generation number}; reset by legacy-load (data dir wiped)
+_gdg_new = {}                  # generations allocated by (+n) in this job, committed at job end
+
+
+def _gdg_current():
+    import json
+    return json.loads(GDG_CAT.read_text()) if GDG_CAT.exists() else {}
+
+
 def dsn_path(dsn):
-    return DATA / dsn.strip("'").replace("(", ".").replace(")", "")
+    """DSN → file. GDG relative refs: BASE(+1) = new generation, BASE(0) = current, BASE(-1) = previous.
+    Generations are files BASE.GnnnnV00, as on z/OS. (+n) within one job resolves to the same new
+    generation for every DD that names it; the catalog is updated only when the job ends."""
+    dsn = dsn.strip("'")
+    m = re.fullmatch(r"(.+)\(([+-]?\d+)\)", dsn)
+    if not m:
+        return DATA / dsn
+    base, rel = m.group(1), int(m.group(2))
+    cur = _gdg_current().get(base, 0)
+    if rel > 0:
+        gen = _gdg_new.setdefault((base, rel), cur + rel)
+    else:
+        gen = cur + rel
+        if gen < 1:
+            sys.exit(f"GDG {base}({rel}): no such generation (current={cur})")
+    return DATA / f"{base}.G{gen:04d}V00"
 
 
-NOOP = {"IEFBR14"}  # allocate/delete-only utility: DISP handling is implicit in file creation
+def gdg_commit():
+    import json
+    cat = _gdg_current()
+    for (base, _), gen in _gdg_new.items():
+        cat[base] = max(cat.get(base, 0), gen)
+    if _gdg_new:
+        GDG_CAT.write_text(json.dumps(cat, indent=1, sort_keys=True) + "\n")
+
+
+NOOP = {"IEFBR14"}
+
+
+def pinned_clock():
+    """FUNCTION CURRENT-DATE / ACCEPT FROM DATE|TIME come from COB_CURRENT_DATE (ADR 0005).
+    The '.00' fraction is required: without it GnuCOBOL still takes hundredths from the wall clock."""
+    d = os.environ.get("CD_BUSINESS_DATE")
+    if not d:
+        sys.exit("CD_BUSINESS_DATE not set — runs must use the pinned clock (ADR 0005)")
+    t = os.environ.get("CD_BATCH_TIME", "02:00:00.00")
+    return f"{d.replace('-', '/')} {t}"  # allocate/delete-only utility: DISP handling is implicit in file creation
 
 
 def run(jcl):
@@ -66,7 +109,7 @@ def run(jcl):
         if s["pgm"] in NOOP:
             print(f"STEP {s['name']} PGM={s['pgm']} RC=0 (noop)")
             continue
-        env = {**os.environ, **{f"DD_{k}": v for k, v in s["dd"].items()}}
+        env = {**os.environ, "COB_CURRENT_DATE": pinned_clock(), **{f"DD_{k}": v for k, v in s["dd"].items()}}
         # COBOL DISPLAY goes to stdout = the step's SYSOUT DD (else SYSPRINT); stderr kept separately.
         out_dd = next((d for d in ("SYSOUT", "SYSPRINT") if d in s["sysout"]), None)
         out_f = Path(s["dd"][out_dd]) if out_dd else SYSOUT / f"{job}.{s['name']}.STDOUT.txt"
@@ -79,6 +122,7 @@ def run(jcl):
         sys.stderr.write(r.stderr.decode(errors="replace"))
         print(f"STEP {s['name']} PGM={s['pgm']} RC={r.returncode}")
         maxrc = max(maxrc, r.returncode)
+    gdg_commit()
     print(f"JOB {job} MAXCC={maxrc}")
     (SYSOUT / f"{job}.MAXCC").write_text(f"{maxrc}\n")
     return maxrc

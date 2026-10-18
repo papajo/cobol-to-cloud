@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Capture one legacy job run into golden/<JOB>/ with a sha256 manifest.
 
-Captured: the job's SYSOUT/STDOUT files (STDERR copied for diagnosis but NOT hashed — runtime noise), and flat (non-indexed) datasets written during the run
-(mtime newer than out/legacy/.runstart). Indexed (KSDS) files are BDB binaries — not hashed; a run that
-modifies one is reported so a key-ordered unload can be added for that job.
+Captured: the job's SYSOUT/STDOUT files (STDERR copied for diagnosis but NOT hashed — runtime noise),
+flat datasets written during the run (mtime newer than out/legacy/.runstart), and for every KSDS the run
+modified, its key-ordered unload from out/legacy/unload/ (BDB files themselves are not byte-stable).
 Refuses a run whose MAXCC exceeds --max-rc (default 0), so a broken run never becomes golden.
 Usage: capture.py JOB [--max-rc N]
 """
@@ -32,12 +32,19 @@ manifest, touched_ksds = {}, []
 for f in sorted((leg / "sysout").glob(f"{job}.*.txt")):
     manifest[f"sysout/{f.name}"] = f
 for f in sorted((leg / "data").iterdir()):
-    if f.is_file() and f.stat().st_mtime >= t0:
+    if f.is_file() and not f.name.startswith(".") and f.stat().st_mtime >= t0:
         base = f.name.rsplit(".", 1)[0] if f.name.rsplit(".", 1)[-1].isdigit() else f.name
         if f.name in ksds or base in ksds:
-            touched_ksds.append(f.name)
+            touched_ksds.append(base if base in ksds else f.name)
         else:
             manifest[f"data/{f.name}"] = f
+missing = []
+for k in sorted(set(touched_ksds)):
+    u = leg / "unload" / k
+    if u.exists() and u.stat().st_mtime >= t0:
+        manifest[f"vsam/{k}"] = u
+    else:
+        missing.append(k)
 out = {}
 for rel, f in manifest.items():
     t = dst / rel
@@ -47,5 +54,5 @@ for rel, f in manifest.items():
         out[rel] = hashlib.sha256(f.read_bytes()).hexdigest()
 (dst / "manifest.json").write_text(json.dumps(out, indent=2) + "\n")
 print(f"golden/{job}: {len(out)} files")
-if touched_ksds:
-    print(f"WARN {job} modified KSDS not captured (needs unload): {', '.join(sorted(set(touched_ksds)))}")
+if missing:
+    sys.exit(f"{job}: modified KSDS without fresh unload: {', '.join(missing)} (run make legacy-unload)")

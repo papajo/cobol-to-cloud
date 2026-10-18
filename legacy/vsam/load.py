@@ -142,7 +142,14 @@ def loader_source(c):
 
 
 def main():
+    # Baseline = empty data dir + flat seed datasets (PS) + KSDS loaded from seed. Wiping first means
+    # outputs of earlier runs (GDG generations, reports) can never leak into the next golden.
+    import shutil
+    shutil.rmtree(DATA, ignore_errors=True)
     WORK.mkdir(parents=True, exist_ok=True); DATA.mkdir(parents=True, exist_ok=True)
+    for f in sorted(SEED.glob(PREFIX + "*")):
+        shutil.copy2(f, DATA / f.name)
+        print(f"PS   {f.name}")
     cat = parse_catalog()
     (WORK / "catalog.json").write_text(json.dumps(cat, indent=1) + "\n")
     rc_max = 0
