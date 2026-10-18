@@ -3,7 +3,7 @@
 Capstone #5. Migrate AWS CardDemo (COBOL/JCL/VSAM/DB2) batch to Spring Batch + Postgres with byte-identical parity against golden output. Scope: **batch-first** (phases 0–5). CICS online deferred.
 
 ## Stack
-- Legacy (Docker on oldbox): GnuCOBOL 3.2 `-std=ibm -fsign=EBCDIC`, indexed files (BDB) for VSAM, GixSQL → Postgres for EXEC SQL, `legacy/jcl-runner/jclrun.py` for JCL.
+- Legacy (Docker on oldbox): GnuCOBOL 3.2 `-std=ibm -fsign=EBCDIC -fdefaultbyte=0` (ADR 0003/0004), indexed files (BDB) for VSAM, GixSQL → Postgres for EXEC SQL, `legacy/jcl-runner/jclrun.py` for JCL.
 - Seed data: EBCDIC `app/data/EBCDIC/*.PS` is canonical (ADR 0003); `app/data/ASCII` has drifted — never use it.
 - Modern: Java 21, Spring Boot 3.3, Spring Batch 5, Postgres 16, Maven multi-module (`modern/`).
 - Tooling: Python 3.11 (`migration/`, `harness/`, `legacy/jcl-runner/`), Make.

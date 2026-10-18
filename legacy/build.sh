@@ -22,7 +22,8 @@ done
 ok=0; fail=0; skip=0
 compile() {  # $1 = source, $2 = module name
   # -fsign=EBCDIC: signed DISPLAY uses z/OS overpunch ({,A-I,},J-R) — required for CardDemo data (ADR 0003)
-  if cobc -m -std=ibm -fsign=EBCDIC -I "$SRC/cpy" -o "$OUT/$2.so" "$1" 2>"/tmp/$2.err"; then
+  # -fdefaultbyte=0: WORKING-STORAGE without VALUE starts as X'00' on every GnuCOBOL version (ADR 0004)
+  if cobc -m -std=ibm -fsign=EBCDIC -fdefaultbyte=0 -I "$SRC/cpy" -o "$OUT/$2.so" "$1" 2>"/tmp/$2.err"; then
     ok=$((ok+1)); echo "OK   $2"
   else
     fail=$((fail+1)); echo "FAIL $2"; grep -v -e FORTIFY -e 'note:' "/tmp/$2.err" | head -8

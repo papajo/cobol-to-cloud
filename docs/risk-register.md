@@ -14,4 +14,5 @@
 | R11 | Tab-indented sources (CUSTREC.cpy, CSLKPCDY.cpy, tab width 3) overflow column 72 under cobc's 8-col tabs | **realized** | M | build.sh normalizes copies with `expand -t 3`; vendor untouched | — | mitigated |
 | R12 | COBDATFT (asm) error path: MVC copies 38 bytes from 13-byte literal → 25 bytes literal-pool residue on z/OS | L | L | COBOL port pads spaces; CardDemo only uses valid path (type 2→2) | — | accepted |
 | R13 | VB output RDW: GnuCOBOL length excludes the 4-byte RDW (12), z/OS includes it (16) | **realized** | M | Golden = GnuCOBOL convention; modern VB writer must match; convert if z/OS-faithful files ever needed | — | accepted |
+| R14 | Output depends on uninitialized WORKING-STORAGE (CBACT01C reissue date bytes 9–10 via COBDATFT); differed between GnuCOBOL 3.1.2 and 3.2 | **realized** | M | ADR 0004: `-fdefaultbyte=0` (z/OS-typical X'00'); modern preserves for parity, fix after | — | mitigated |
 | R9 | VSAM alternate index path (CARDXREF AIX, used by INTCALC) | M | M | Secondary index in GnuCOBOL indexed file + SQL index; verify read order | — | open |
