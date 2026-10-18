@@ -11,4 +11,5 @@
 | R7 | CardDemo ASCII seed data drifted from EBCDIC (ACCTDATA rec 49 group, DISCGRP rec 34 rate) | **realized** | H | ADR 0003: EBCDIC canonical; `make seed-data` | — | mitigated |
 | R8 | Signed zoned (overpunch) is the dominant numeric type (14 fields incl. all ACCT balances), not COMP-3 (4, export only) | H | H | `-fsign=EBCDIC` on oracle; `codec.ZonedDecimal` tests | — | mitigated |
 | R10 | CBEXPORT/CBIMPORT: RECORD KEY EXPORT-SEQUENCE-NUM defined in WORKING-STORAGE, not the FD record (source defect) | **realized** | L | Skipped in build (deferred scope); fix FD to `COPY CVEXPORT` or report upstream | — | deferred |
+| R11 | Tab-indented sources (CUSTREC.cpy, CSLKPCDY.cpy, tab width 3) overflow column 72 under cobc's 8-col tabs | **realized** | M | build.sh normalizes copies with `expand -t 3`; vendor untouched | — | mitigated |
 | R9 | VSAM alternate index path (CARDXREF AIX, used by INTCALC) | M | M | Secondary index in GnuCOBOL indexed file + SQL index; verify read order | — | open |

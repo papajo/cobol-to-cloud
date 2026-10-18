@@ -2,11 +2,22 @@
 # Compile CardDemo batch programs (CB*.cbl / CB*.CBL) as loadable modules.
 set -uo pipefail
 shopt -s nullglob nocaseglob
-SRC=/work/vendor/carddemo/app
+VSRC=/work/vendor/carddemo/app
+SRC=/work/out/legacy/src
 OUT=/work/out/legacy/lib
 # Deferred (ADR 0003 / risk R10): RECORD KEY defined outside the FD record in CardDemo source.
 SKIP=" CBEXPORT CBIMPORT "
-mkdir -p "$OUT"
+
+# Normalize sources (vendor/ stays pristine): a few CardDemo files are tab-indented with
+# tab width 3; cobc expands tabs to 8, pushing code past column 72 (risk R11).
+rm -rf "$SRC" && mkdir -p "$SRC/cbl" "$SRC/cpy" "$OUT"
+for d in cbl cpy; do
+  for f in "$VSRC/$d"/*; do
+    if grep -q $'\t' "$f"; then expand -t 3 "$f" > "$SRC/$d/$(basename "$f")"; echo "NORM $d/$(basename "$f") (tabs→3)"
+    else cp "$f" "$SRC/$d/"; fi
+  done
+done
+
 ok=0; fail=0; skip=0
 for f in "$SRC"/cbl/CB*.cbl; do
   n=$(basename "${f%.*}" | tr a-z A-Z)
