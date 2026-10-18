@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Compile CardDemo batch programs (CB*.cbl / CB*.CBL) as loadable modules.
+# Compile CardDemo batch programs (CB*.cbl / CB*.CBL) + runtime stubs as loadable modules.
 set -uo pipefail
 shopt -s nullglob nocaseglob
-VSRC=/work/vendor/carddemo/app
-SRC=/work/out/legacy/src
-OUT=/work/out/legacy/lib
+W=${WORK:-/work}
+VSRC=$W/vendor/carddemo/app
+SRC=$W/out/legacy/src
+OUT=$W/out/legacy/lib
 # Deferred (ADR 0003 / risk R10): RECORD KEY defined outside the FD record in CardDemo source.
 SKIP=" CBEXPORT CBIMPORT "
 
@@ -19,15 +20,19 @@ for d in cbl cpy; do
 done
 
 ok=0; fail=0; skip=0
+compile() {  # $1 = source, $2 = module name
+  # -fsign=EBCDIC: signed DISPLAY uses z/OS overpunch ({,A-I,},J-R) — required for CardDemo data (ADR 0003)
+  if cobc -m -std=ibm -fsign=EBCDIC -I "$SRC/cpy" -o "$OUT/$2.so" "$1" 2>"/tmp/$2.err"; then
+    ok=$((ok+1)); echo "OK   $2"
+  else
+    fail=$((fail+1)); echo "FAIL $2"; grep -v -e FORTIFY -e 'note:' "/tmp/$2.err" | head -8
+  fi
+}
+for f in "$W"/legacy/runtime/*.cbl; do compile "$f" "$(basename "${f%.*}")"; done
 for f in "$SRC"/cbl/CB*.cbl; do
   n=$(basename "${f%.*}" | tr a-z A-Z)
   if [[ "$SKIP" == *" $n "* ]]; then skip=$((skip+1)); echo "SKIP $n"; continue; fi
-  # -fsign=EBCDIC: signed DISPLAY uses z/OS overpunch ({,A-I,},J-R) — required for CardDemo data (ADR 0003)
-  if cobc -m -std=ibm -fsign=EBCDIC -I "$SRC/cpy" -o "$OUT/$n.so" "$f" 2>"/tmp/$n.err"; then
-    ok=$((ok+1)); echo "OK   $n"
-  else
-    fail=$((fail+1)); echo "FAIL $n"; head -8 "/tmp/$n.err"
-  fi
+  compile "$f" "$n"
 done
 echo "compiled=$ok failed=$fail skipped=$skip"
 exit $(( fail > 0 ))

@@ -37,30 +37,50 @@ def dsn_path(dsn):
     return DATA / dsn.strip("'").replace("(", ".").replace(")", "")
 
 
+NOOP = {"IEFBR14"}  # allocate/delete-only utility: DISP handling is implicit in file creation
+
+
 def run(jcl):
     steps, step = [], None
+    job = Path(jcl).stem.upper()
     for name, op, ops in statements(Path(jcl).read_text()):
         if op == "EXEC":
             p = params(ops)
             if "PGM" not in p:
                 sys.exit(f"unsupported EXEC (PROC?): {name} {ops}")
-            step = {"name": name, "pgm": p["PGM"], "dd": {}, "cond": p.get("COND")}
+            step = {"name": name, "pgm": p["PGM"], "dd": {}, "sysout": [], "cond": p.get("COND")}
             steps.append(step)
         elif op == "DD" and step:
             p = params(ops)
             if "DSN" in p:
                 step["dd"][name] = str(dsn_path(p["DSN"]))
             elif "SYSOUT" in p:
-                step["dd"][name] = str(SYSOUT / f"{step['name']}.{name}.txt")
+                f = SYSOUT / f"{job}.{step['name']}.{name}.txt"
+                step["dd"][name] = str(f)
+                step["sysout"].append(name)
     SYSOUT.mkdir(parents=True, exist_ok=True)
     maxrc = 0
     for s in steps:
         if s["cond"]:
             print(f"TODO COND={s['cond']} on {s['name']} — running anyway")
+        if s["pgm"] in NOOP:
+            print(f"STEP {s['name']} PGM={s['pgm']} RC=0 (noop)")
+            continue
         env = {**os.environ, **{f"DD_{k}": v for k, v in s["dd"].items()}}
-        rc = subprocess.call(["cobcrun", s["pgm"]], env=env)
-        print(f"STEP {s['name']} PGM={s['pgm']} RC={rc}")
-        maxrc = max(maxrc, rc)
+        # COBOL DISPLAY goes to stdout = the step's SYSOUT DD (else SYSPRINT); stderr kept separately.
+        out_dd = next((d for d in ("SYSOUT", "SYSPRINT") if d in s["sysout"]), None)
+        out_f = Path(s["dd"][out_dd]) if out_dd else SYSOUT / f"{job}.{s['name']}.STDOUT.txt"
+        err_f = SYSOUT / f"{job}.{s['name']}.STDERR.txt"
+        r = subprocess.run(["cobcrun", s["pgm"]], env=env, capture_output=True)
+        out_f.write_bytes(r.stdout)
+        if r.stderr:
+            err_f.write_bytes(r.stderr)
+        sys.stdout.write(r.stdout.decode(errors="replace"))
+        sys.stderr.write(r.stderr.decode(errors="replace"))
+        print(f"STEP {s['name']} PGM={s['pgm']} RC={r.returncode}")
+        maxrc = max(maxrc, r.returncode)
+    print(f"JOB {job} MAXCC={maxrc}")
+    (SYSOUT / f"{job}.MAXCC").write_text(f"{maxrc}\n")
     return maxrc
 
 

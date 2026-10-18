@@ -10,18 +10,18 @@ MVN ?= $(if $(shell command -v mvn),mvn,docker run --rm $(DUSER) \
 	-v $(CURDIR):/work -w /work -v $(CURDIR)/.cache/m2:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2 \
 	maven:3.9-eclipse-temurin-21 mvn -Duser.home=/var/maven)
 
-.PHONY: fetch inventory seed-data legacy-build legacy-run golden golden-all modern-test parity db-up db-reset
+.PHONY: fetch inventory seed-data legacy-build legacy-load legacy-run golden golden-all modern-test parity db-up db-reset
 
 inventory:
 	python3 mapper/inventory.py vendor/carddemo/app docs
 
 # EBCDIC .PS → fixed ASCII records (ADR 0003). LRECLs from copybook headers.
-SEED := ACCTDATA:300:CVACT01Y CARDDATA:150:CVACT02Y CARDXREF:50:CVACT03Y CUSTDATA:500:CVCUS01Y \
-        DALYTRAN:350:CVTRA06Y DISCGRP:50:CVTRA02Y TCATBALF:50:CVTRA01Y TRANCATG:60:CVTRA04Y TRANTYPE:60:CVTRA03Y
+SEED := ACCTDATA.PS:300:CVACT01Y CARDDATA.PS:150:CVACT02Y CARDXREF.PS:50:CVACT03Y CUSTDATA.PS:500:CVCUS01Y \
+        DALYTRAN.PS:350:CVTRA06Y DALYTRAN.PS.INIT:350:CVTRA05Y DISCGRP.PS:50:CVTRA02Y TCATBALF.PS:50:CVTRA01Y TRANCATG.PS:60:CVTRA04Y TRANTYPE.PS:60:CVTRA03Y USRSEC.PS:80:CSUSR01Y
 seed-data:
 	@for s in $(SEED); do IFS=: read ds lrecl cpy <<< "$$s"; \
-	  python3 migration/ebcdic2ascii.py vendor/carddemo/app/data/EBCDIC/AWS.M2.CARDDEMO.$$ds.PS $$lrecl \
-	    out/seed/$$ds.dat --copybook vendor/carddemo/app/cpy/$$cpy.cpy || exit 1; done
+	  python3 migration/ebcdic2ascii.py vendor/carddemo/app/data/EBCDIC/AWS.M2.CARDDEMO.$$ds $$lrecl \
+	    out/seed/AWS.M2.CARDDEMO.$$ds --copybook vendor/carddemo/app/cpy/$$cpy.cpy || exit 1; done
 
 fetch:
 	@test -d vendor/carddemo || git clone https://github.com/aws-samples/aws-mainframe-modernization-carddemo vendor/carddemo
@@ -29,14 +29,20 @@ fetch:
 
 legacy-build:
 	docker build -t $(IMG) legacy
-	docker run --rm -v $(PWD):/work $(IMG) /work/legacy/build.sh
+	docker run --rm -v $(CURDIR):/work $(IMG) /work/legacy/build.sh
+
+# IDCAMS DEFINE+REPRO equivalent: (re)create every KSDS from out/seed (baseline state)
+legacy-load:
+	docker run --rm -v $(CURDIR):/work $(IMG) python3 /work/legacy/vsam/load.py /work
 
 legacy-run:
 	@test -n "$(JOB)" || (echo "JOB=<member> required" && exit 1)
-	docker run --rm -e CD_BUSINESS_DATE=2022-07-18 -v $(PWD):/work $(IMG) \
+	@mkdir -p out/legacy && touch out/legacy/.runstart && sleep 1
+	docker run --rm -e CD_BUSINESS_DATE=2022-07-18 -v $(CURDIR):/work $(IMG) \
 		python3 /work/legacy/jcl-runner/jclrun.py /work/vendor/carddemo/app/jcl/$(JOB).jcl
 
-golden: legacy-run
+# Each golden starts from the seed baseline; the daily chain gets its own target later.
+golden: legacy-load legacy-run
 	python3 harness/capture.py $(JOB)
 
 golden-all:

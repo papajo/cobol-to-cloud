@@ -20,7 +20,8 @@ raw = Path(a.src).read_bytes()
 if len(raw) % a.lrecl:
     sys.exit(f"{a.src}: size {len(raw)} not a multiple of LRECL {a.lrecl}")
 recs = [raw[i:i + a.lrecl].decode("cp037") for i in range(0, len(raw), a.lrecl)]
-bad = [i for i, r in enumerate(recs) if any(ord(c) > 126 or (ord(c) < 32) for c in r)]
+# X'00' (LOW-VALUES) is legal in DISPLAY data and identical in both encodings; other controls mean binary fields.
+bad = [i for i, r in enumerate(recs) if any(ord(c) > 126 or (0 < ord(c) < 32) for c in r)]
 if bad:
     sys.exit(f"{a.src}: non-printable chars after decode in records {bad[:5]} (binary fields?)")
 Path(a.dst).parent.mkdir(parents=True, exist_ok=True)

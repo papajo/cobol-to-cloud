@@ -25,9 +25,10 @@ docs/        assessment/, adr/, risk-register.md, inventory.md
 make fetch            # clone CardDemo at pinned ref → vendor/carddemo
 make inventory        # regenerate docs/inventory.{md,json}
 make seed-data        # EBCDIC .PS → out/seed/*.dat (fixed ASCII records)
-make legacy-build     # docker build gnucobol image; compile app/cbl/*.cbl
+make legacy-build     # docker build gnucobol image; compile CB* programs + legacy/runtime stubs
+make legacy-load      # IDCAMS DEFINE+REPRO equivalent: rebuild all KSDS from out/seed (baseline)
 make legacy-run JOB=X # run JCL member X under jclrun.py
-make golden JOB=X     # run + capture → golden/X/
+make golden JOB=X     # load baseline + run + capture → golden/X/ (refuses MAXCC>0)
 make golden-all       # all jobs in golden/jobs.txt
 make modern-test      # mvn -f modern/pom.xml verify
 make parity JOB=X     # run modern job, compare vs golden/X
@@ -35,6 +36,7 @@ make db-up / db-reset # Postgres via docker compose; reset to snapshot
 ```
 
 ## Conventions
+- Assembler/LE routines CardDemo calls are ported to COBOL in `legacy/runtime/` (CEE3ABD stub, COBDATFT port), divergences logged as risks.
 - One job migrated per PR: `job/<JCLNAME>`. PR must include green `make parity JOB=<name>`.
 - Golden is source of truth. Never edit golden/ by hand; re-record only via `make golden`, commit with reason.
 - Pinned business date `2022-07-18` (env `CD_BUSINESS_DATE`) for both legacy and modern runs.

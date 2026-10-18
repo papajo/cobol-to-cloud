@@ -12,4 +12,6 @@
 | R8 | Signed zoned (overpunch) is the dominant numeric type (14 fields incl. all ACCT balances), not COMP-3 (4, export only) | H | H | `-fsign=EBCDIC` on oracle; `codec.ZonedDecimal` tests | — | mitigated |
 | R10 | CBEXPORT/CBIMPORT: RECORD KEY EXPORT-SEQUENCE-NUM defined in WORKING-STORAGE, not the FD record (source defect) | **realized** | L | Skipped in build (deferred scope); fix FD to `COPY CVEXPORT` or report upstream | — | deferred |
 | R11 | Tab-indented sources (CUSTREC.cpy, CSLKPCDY.cpy, tab width 3) overflow column 72 under cobc's 8-col tabs | **realized** | M | build.sh normalizes copies with `expand -t 3`; vendor untouched | — | mitigated |
+| R12 | COBDATFT (asm) error path: MVC copies 38 bytes from 13-byte literal → 25 bytes literal-pool residue on z/OS | L | L | COBOL port pads spaces; CardDemo only uses valid path (type 2→2) | — | accepted |
+| R13 | VB output RDW: GnuCOBOL length excludes the 4-byte RDW (12), z/OS includes it (16) | **realized** | M | Golden = GnuCOBOL convention; modern VB writer must match; convert if z/OS-faithful files ever needed | — | accepted |
 | R9 | VSAM alternate index path (CARDXREF AIX, used by INTCALC) | M | M | Secondary index in GnuCOBOL indexed file + SQL index; verify read order | — | open |
