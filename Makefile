@@ -45,14 +45,13 @@ legacy-run:
 	docker run --rm -e CD_BUSINESS_DATE=2022-07-18 -v $(CURDIR):/work $(IMG) \
 		python3 /work/legacy/jcl-runner/jclrun.py /work/vendor/carddemo/app/jcl/$(JOB).jcl
 
-# Each golden starts from the seed baseline; the daily chain gets its own target later.
-# Accepted MAXCC per job: 2nd column of golden/jobs.txt (default 0)
-MAXRC = $(or $(shell awk '$$1=="$(JOB)"{print $$2}' golden/jobs.txt),0)
-golden: legacy-load legacy-run legacy-unload
-	python3 harness/capture.py $(JOB) --max-rc $(MAXRC)
+# Baseline load → prerequisites (after=) → JOB → unload → capture; per-job MAXCC (see golden/jobs.txt)
+golden:
+	@test -n "$(JOB)" || (echo "JOB=<member> required" && exit 1)
+	IMG=$(IMG) harness/golden.sh $(JOB)
 
 golden-all:
-	grep -v '^#' golden/jobs.txt | while read j rc; do [ -n "$$j" ] && { $(MAKE) golden JOB=$$j || exit 1; }; done
+	grep -v '^#' golden/jobs.txt | while read j rest; do [ -n "$$j" ] && { IMG=$(IMG) harness/golden.sh $$j || exit 1; }; done
 
 modern-test:
 	@mkdir -p .cache/m2

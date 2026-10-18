@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Minimal JCL runner: parses JOB/EXEC/DD, maps DSNs to files, runs PGM via cobcrun.
 
-Supported (phase 2 target): EXEC PGM=, DD DSN=/DISP=/SYSOUT=, COND= on EXEC, SET symbols.
+Supported: EXEC PGM= (+PARM= via PARMDRV), DD DSN=/DISP=/SYSOUT=, GDG relative generations, pinned clock.
 Not yet: PROCs, GDG (+1)/(0), IDCAMS REPRO/DEFINE, SORT. Unsupported statements fail loudly.
 """
 import os, re, subprocess, sys
@@ -91,7 +91,8 @@ def run(jcl):
             p = params(ops)
             if "PGM" not in p:
                 sys.exit(f"unsupported EXEC (PROC?): {name} {ops}")
-            step = {"name": name, "pgm": p["PGM"], "dd": {}, "sysout": [], "cond": p.get("COND")}
+            step = {"name": name, "pgm": p["PGM"], "dd": {}, "sysout": [], "cond": p.get("COND"),
+                    "parm": p["PARM"].strip("'") if "PARM" in p else None}
             steps.append(step)
         elif op == "DD" and step:
             p = params(ops)
@@ -114,7 +115,12 @@ def run(jcl):
         out_dd = next((d for d in ("SYSOUT", "SYSPRINT") if d in s["sysout"]), None)
         out_f = Path(s["dd"][out_dd]) if out_dd else SYSOUT / f"{job}.{s['name']}.STDOUT.txt"
         err_f = SYSOUT / f"{job}.{s['name']}.STDERR.txt"
-        r = subprocess.run(["cobcrun", s["pgm"]], env=env, capture_output=True)
+        if s["parm"] is not None:  # z/OS PARM convention via driver (legacy/runtime/PARMDRV.cbl)
+            env.update(CD_PGM=s["pgm"], CD_PARM=s["parm"])
+            cmd = ["cobcrun", "PARMDRV"]
+        else:
+            cmd = ["cobcrun", s["pgm"]]
+        r = subprocess.run(cmd, env=env, capture_output=True)
         out_f.write_bytes(r.stdout)
         if r.stderr:
             err_f.write_bytes(r.stderr)

@@ -1,12 +1,14 @@
 # Migration/golden order. Readers first (harness shakedown), then the daily chain in data-dependency order.
 # Daily chain mutates VSAM: capture must run in sequence from the same db-reset baseline.
-# Format: JOB [accepted MAXCC]. POSTTRAN sets RC=4 when it rejects transactions (CBTRN02C line 229).
+# Format: JOB [accepted MAXCC] [after=PRE,...]  (see harness/golden.sh)
+# POSTTRAN sets RC=4 when it rejects transactions (CBTRN02C line 229).
+# INTCALC runs after POSTTRAN: seed TCATBAL balances are all zero, so interest is only non-trivial after posting.
 READCARD
 READCUST
 READXREF
 READACCT
 POSTTRAN 4
-INTCALC
+INTCALC 0 after=POSTTRAN
 TRANREPT
 CREASTMT
 # Deferred: CBEXPORT, CBIMPORT (COMP-3 export layout; ADR 0003). CBTRN01C has no JCL (validation-only program).

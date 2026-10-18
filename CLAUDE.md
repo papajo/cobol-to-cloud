@@ -28,7 +28,7 @@ make seed-data        # EBCDIC .PS → out/seed/*.dat (fixed ASCII records)
 make legacy-build     # docker build gnucobol image; compile CB* programs + legacy/runtime stubs
 make legacy-load      # IDCAMS DEFINE+REPRO equivalent: rebuild all KSDS from out/seed (baseline)
 make legacy-run JOB=X # run JCL member X under jclrun.py
-make golden JOB=X     # load baseline + run + capture → golden/X/ (refuses MAXCC>0)
+make golden JOB=X     # harness/golden.sh: baseline → after= prereqs → run → unload → capture (per-job MAXCC)
 make golden-all       # all jobs in golden/jobs.txt
 make modern-test      # mvn -f modern/pom.xml verify
 make parity JOB=X     # run modern job, compare vs golden/X
@@ -45,5 +45,6 @@ make db-up / db-reset # Postgres via docker compose; reset to snapshot
 - Numerics: signed zoned → `codec.ZonedDecimal`, COMP-3 → `codec.PackedDecimal`. Money: `BigDecimal` only; scale from PIC clause; rounding mode must match COBOL (`ROUNDED` → HALF_UP, else DOWN/truncate). No `double`.
 - Ordering: compare keys in EBCDIC collation (`codec.EbcdicCollator`) wherever COBOL SORT/VSAM key order is observable.
 - Copybook is the schema: DDL and record classes are generated from `vendor/carddemo/app/cpy`, never hand-written.
-- Decisions → `docs/adr/NNNN-title.md`. Risks → `docs/risk-register.md`.
+- Decisions → `docs/adr/NNNN-title.md`. Risks → `docs/risk-register.md`. Defects/discoveries → `docs/findings.md`.
+- Legacy defects are reproduced for parity first, then fixed in a separate, labelled change — never silently.
 - Commits: conventional (`feat(batch):`, `fix(codec):`, `test(golden):`).
