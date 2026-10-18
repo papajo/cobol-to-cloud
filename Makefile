@@ -2,6 +2,13 @@ SHELL := /bin/bash
 REF := $(shell cat legacy/CARDDEMO_REF)
 IMG := c2c-legacy
 JOB ?=
+# Rootless Docker: container root == host user, so no -u (else -u maps to an unwritable subuid)
+ROOTLESS := $(shell docker info --format '{{.SecurityOptions}}' 2>/dev/null | grep -q rootless && echo 1)
+DUSER := $(if $(ROOTLESS),,-u $(shell id -u):$(shell id -g))
+# Host mvn if present, else Maven 3.9 + JDK 21 in Docker (cache in .cache/m2)
+MVN ?= $(if $(shell command -v mvn),mvn,docker run --rm $(DUSER) \
+	-v $(CURDIR):/work -w /work -v $(CURDIR)/.cache/m2:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2 \
+	maven:3.9-eclipse-temurin-21 mvn -Duser.home=/var/maven)
 
 .PHONY: fetch inventory seed-data legacy-build legacy-run golden golden-all modern-test parity db-up db-reset
 
@@ -36,7 +43,8 @@ golden-all:
 	while read j; do $(MAKE) golden JOB=$$j || exit 1; done < golden/jobs.txt
 
 modern-test:
-	mvn -q -f modern/pom.xml verify
+	@mkdir -p .cache/m2
+	$(MVN) -q -f modern/pom.xml verify
 
 parity:
 	@test -n "$(JOB)" || (echo "JOB=<member> required" && exit 1)
