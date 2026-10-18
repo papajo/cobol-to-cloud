@@ -7,7 +7,8 @@ mkdir -p "$OUT"
 ok=0; fail=0
 for f in "$SRC"/cbl/CB*.cbl; do
   n=$(basename "$f" .cbl)
-  if cobc -m -std=ibm -I "$SRC/cpy" -o "$OUT/$n.so" "$f" 2>"/tmp/$n.err"; then
+  # -fsign=EBCDIC: signed DISPLAY uses z/OS overpunch ({,A-I,},J-R) — required for CardDemo data (ADR 0003)
+  if cobc -m -std=ibm -fsign=EBCDIC -I "$SRC/cpy" -o "$OUT/$n.so" "$f" 2>"/tmp/$n.err"; then
     ok=$((ok+1))
   else
     fail=$((fail+1)); echo "FAIL $n"; head -5 "/tmp/$n.err"

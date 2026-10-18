@@ -1,1 +1,11 @@
-# One JCL member per line, in migration order. Fill from docs/inventory.md.
+# Migration/golden order. Readers first (harness shakedown), then the daily chain in data-dependency order.
+# Daily chain mutates VSAM: capture must run in sequence from the same db-reset baseline.
+READCARD
+READCUST
+READXREF
+READACCT
+POSTTRAN
+INTCALC
+TRANREPT
+CREASTMT
+# Deferred: CBEXPORT, CBIMPORT (COMP-3 export layout; ADR 0003). CBTRN01C has no JCL (validation-only program).

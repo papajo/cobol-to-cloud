@@ -3,7 +3,18 @@ REF := $(shell cat legacy/CARDDEMO_REF)
 IMG := c2c-legacy
 JOB ?=
 
-.PHONY: fetch legacy-build legacy-run golden golden-all modern-test parity db-up db-reset
+.PHONY: fetch inventory seed-data legacy-build legacy-run golden golden-all modern-test parity db-up db-reset
+
+inventory:
+	python3 mapper/inventory.py vendor/carddemo/app docs
+
+# EBCDIC .PS → fixed ASCII records (ADR 0003). LRECLs from copybook headers.
+SEED := ACCTDATA:300:CVACT01Y CARDDATA:150:CVACT02Y CARDXREF:50:CVACT03Y CUSTDATA:500:CVCUS01Y \
+        DALYTRAN:350:CVTRA06Y DISCGRP:50:CVTRA02Y TCATBALF:50:CVTRA01Y TRANCATG:60:CVTRA04Y TRANTYPE:60:CVTRA03Y
+seed-data:
+	@for s in $(SEED); do IFS=: read ds lrecl cpy <<< "$$s"; \
+	  python3 migration/ebcdic2ascii.py vendor/carddemo/app/data/EBCDIC/AWS.M2.CARDDEMO.$$ds.PS $$lrecl \
+	    out/seed/$$ds.dat --copybook vendor/carddemo/app/cpy/$$cpy.cpy || exit 1; done
 
 fetch:
 	@test -d vendor/carddemo || git clone https://github.com/aws-samples/aws-mainframe-modernization-carddemo vendor/carddemo

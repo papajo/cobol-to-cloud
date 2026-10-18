@@ -3,7 +3,8 @@
 Capstone #5. Migrate AWS CardDemo (COBOL/JCL/VSAM/DB2) batch to Spring Batch + Postgres with byte-identical parity against golden output. Scope: **batch-first** (phases 0–5). CICS online deferred.
 
 ## Stack
-- Legacy (Docker on oldbox): GnuCOBOL 3.2 `-std=ibm`, indexed files (BDB) for VSAM, GixSQL → Postgres for EXEC SQL, `legacy/jcl-runner/jclrun.py` for JCL.
+- Legacy (Docker on oldbox): GnuCOBOL 3.2 `-std=ibm -fsign=EBCDIC`, indexed files (BDB) for VSAM, GixSQL → Postgres for EXEC SQL, `legacy/jcl-runner/jclrun.py` for JCL.
+- Seed data: EBCDIC `app/data/EBCDIC/*.PS` is canonical (ADR 0003); `app/data/ASCII` has drifted — never use it.
 - Modern: Java 21, Spring Boot 3.3, Spring Batch 5, Postgres 16, Maven multi-module (`modern/`).
 - Tooling: Python 3.11 (`migration/`, `harness/`, `legacy/jcl-runner/`), Make.
 - Source: `vendor/carddemo/` (git-ignored; fetched by `make fetch`, pinned in `legacy/CARDDEMO_REF`).
@@ -22,6 +23,8 @@ docs/        assessment/, adr/, risk-register.md, inventory.md
 ## Commands
 ```
 make fetch            # clone CardDemo at pinned ref → vendor/carddemo
+make inventory        # regenerate docs/inventory.{md,json}
+make seed-data        # EBCDIC .PS → out/seed/*.dat (fixed ASCII records)
 make legacy-build     # docker build gnucobol image; compile app/cbl/*.cbl
 make legacy-run JOB=X # run JCL member X under jclrun.py
 make golden JOB=X     # run + capture → golden/X/
@@ -35,7 +38,7 @@ make db-up / db-reset # Postgres via docker compose; reset to snapshot
 - One job migrated per PR: `job/<JCLNAME>`. PR must include green `make parity JOB=<name>`.
 - Golden is source of truth. Never edit golden/ by hand; re-record only via `make golden`, commit with reason.
 - Pinned business date `2022-07-18` (env `CD_BUSINESS_DATE`) for both legacy and modern runs.
-- Money: `BigDecimal` only; scale from PIC clause; rounding mode must match COBOL (`ROUNDED` → HALF_UP, else DOWN/truncate). No `double`.
+- Numerics: signed zoned → `codec.ZonedDecimal`, COMP-3 → `codec.PackedDecimal`. Money: `BigDecimal` only; scale from PIC clause; rounding mode must match COBOL (`ROUNDED` → HALF_UP, else DOWN/truncate). No `double`.
 - Ordering: compare keys in EBCDIC collation (`codec.EbcdicCollator`) wherever COBOL SORT/VSAM key order is observable.
 - Copybook is the schema: DDL and record classes are generated from `vendor/carddemo/app/cpy`, never hand-written.
 - Decisions → `docs/adr/NNNN-title.md`. Risks → `docs/risk-register.md`.

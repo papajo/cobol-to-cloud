@@ -1,0 +1,5152 @@
+{
+ "jobs": [
+  {
+   "member": "ACCTFILE",
+   "file": "ACCTFILE.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ACCTDATA",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "ACCTVSAM",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 6.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "CARDFILE",
+   "file": "CARDFILE.jcl",
+   "steps": [
+    {
+     "name": "CLCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CARDDATA",
+       "dsn": "AWS.M2.CARDDEMO.CARDDATA.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CARDVSAM",
+       "dsn": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP40",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP50",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP60",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "OPCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Close files in CICS region Open files in CICS region",
+   "complexity": 16.0,
+   "utilities": [
+    "IDCAMS",
+    "SDSF"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "CBADMCDJ",
+   "file": "CBADMCDJ.jcl",
+   "steps": [
+    {
+     "name": "STEP1",
+     "pgm": "DFHCSDUP",
+     "proc": null,
+     "parm": "CSD(READWRITE),PAGESIZE(60),NOCOMPAT",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "OEM.CICSTS.V05R06M0.CICS.SDFHLOAD",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "DFHCSD",
+       "dsn": "OEM.CICSTS.DFHCSD",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUTDD",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Create Resources for Card Demo application",
+   "complexity": 2.0,
+   "utilities": [
+    "DFHCSDUP"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "CBEXPORT",
+   "file": "CBEXPORT.jcl",
+   "steps": [
+    {
+     "name": "STEP01",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP02",
+     "pgm": "CBEXPORT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CUSTFILE",
+       "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "ACCTFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TRANSACT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CARDFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "EXPFILE",
+       "dsn": "AWS.M2.CARDDEMO.EXPORT.DATA",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 18.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": [
+    "CBEXPORT"
+   ]
+  },
+  {
+   "member": "CBIMPORT",
+   "file": "CBIMPORT.jcl",
+   "steps": [
+    {
+     "name": "STEP01",
+     "pgm": "CBIMPORT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "EXPFILE",
+       "dsn": "AWS.M2.CARDDEMO.EXPORT.DATA",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CUSTOUT",
+       "dsn": "AWS.M2.CARDDEMO.CUSTDATA.IMPORT",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "ACCTOUT",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.IMPORT",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "XREFOUT",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.IMPORT",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "TRNXOUT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.IMPORT",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "ERROUT",
+       "dsn": "AWS.M2.CARDDEMO.IMPORT.ERRORS",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 17.4,
+   "utilities": [],
+   "cobol": [
+    "CBIMPORT"
+   ]
+  },
+  {
+   "member": "CLOSEFIL",
+   "file": "CLOSEFIL.jcl",
+   "steps": [
+    {
+     "name": "CLCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Close files in CICS region",
+   "complexity": 2.0,
+   "utilities": [
+    "SDSF"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "COMBTRAN",
+   "file": "COMBTRAN.jcl",
+   "steps": [
+    {
+     "name": "STEP05R",
+     "pgm": "SORT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SORTIN",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.BKUP(0)",
+       "disp": "SHR",
+       "gdg": true
+      },
+      {
+       "dd": "(concat)",
+       "dsn": "AWS.M2.CARDDEMO.SYSTRAN(0)",
+       "disp": "SHR",
+       "gdg": true
+      },
+      {
+       "dd": "SYMNAMES",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SORTOUT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.COMBINED(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRANSACT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.COMBINED(+1)",
+       "disp": "SHR",
+       "gdg": true
+      },
+      {
+       "dd": "TRANVSAM",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Sort current transaction file and system generated transactions Load combined file to transaction master",
+   "complexity": 16.0,
+   "utilities": [
+    "IDCAMS",
+    "SORT"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "CREASTMT",
+   "file": "CREASTMT.JCL",
+   "steps": [
+    {
+     "name": "DELDEF01",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP010",
+     "pgm": "SORT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SORTIN",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SORTOUT",
+       "dsn": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP020",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "INFILE",
+       "dsn": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUTFILE",
+       "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP030",
+     "pgm": "IEFBR14",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "HTMLFILE",
+       "dsn": "AWS.M2.CARDDEMO.STATEMNT.HTML",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "STMTFILE",
+       "dsn": "AWS.M2.CARDDEMO.STATEMNT.PS",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      }
+     ]
+    },
+    {
+     "name": "STEP040",
+     "pgm": "CBSTM03A",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRNXFILE",
+       "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "ACCTFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CUSTFILE",
+       "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "HTMLFILE",
+       "dsn": "AWS.M2.CARDDEMO.STATEMNT.HTML",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      }
+     ]
+    }
+   ],
+   "comment": "This JCL will create statement for each CARD present in the XREF file",
+   "complexity": 21.8,
+   "utilities": [
+    "IDCAMS",
+    "IEFBR14",
+    "SORT"
+   ],
+   "cobol": [
+    "CBSTM03A"
+   ]
+  },
+  {
+   "member": "CUSTFILE",
+   "file": "CUSTFILE.jcl",
+   "steps": [
+    {
+     "name": "CLCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CUSTDATA",
+       "dsn": "AWS.M2.CARDDEMO.CUSTDATA.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CUSTVSAM",
+       "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "OPCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Close files in CICS region Open files in CICS region",
+   "complexity": 10.0,
+   "utilities": [
+    "IDCAMS",
+    "SDSF"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "DALYREJS",
+   "file": "DALYREJS.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 2.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "DEFCUST",
+   "file": "DEFCUST.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 4.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "DEFGDGB",
+   "file": "DEFGDGB.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 2.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "DEFGDGD",
+   "file": "DEFGDGD.jcl",
+   "steps": [
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP20",
+     "pgm": "IEBGENER",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSUT1",
+       "dsn": "AWS.M2.CARDDEMO.TRANTYPE.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSUT2",
+       "dsn": "AWS.M2.CARDDEMO.TRANTYPE.BKUP(+1)",
+       "disp": "(NEW,CATLG)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP30",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP40",
+     "pgm": "IEBGENER",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSUT1",
+       "dsn": "AWS.M2.CARDDEMO.TRANCATG.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSUT2",
+       "dsn": "AWS.M2.CARDDEMO.TRANCATG.PS.BKUP(+1)",
+       "disp": "(NEW,CATLG)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP50",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP60",
+     "pgm": "IEBGENER",
+     "proc": null,
+     "parm": "",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSUT1",
+       "dsn": "AWS.M2.CARDDEMO.DISCGRP.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSUT2",
+       "dsn": "AWS.M2.CARDDEMO.DISCGRP.BKUP(+1)",
+       "disp": "(NEW,CATLG)",
+       "gdg": true
+      }
+     ]
+    }
+   ],
+   "comment": "This jcl will create GDGs and load first generation for Transaction reference data Define GDG for Transaction Type Create the first generation of GDG Transaction Type Transaction Category type Create the first generation of GDG Transaction Category Type Disclosure Group Create the first generation of GDG disclosure group",
+   "complexity": 21.0,
+   "utilities": [
+    "IDCAMS",
+    "IEBGENER"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "DISCGRP",
+   "file": "DISCGRP.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "DISCGRP",
+       "dsn": "AWS.M2.CARDDEMO.DISCGRP.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "DISCVSAM",
+       "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+       "disp": "OLD",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 6.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "DUSRSECJ",
+   "file": "DUSRSECJ.jcl",
+   "steps": [
+    {
+     "name": "PREDEL",
+     "pgm": "IEFBR14",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "DD01",
+       "dsn": "AWS.M2.CARDDEMO.USRSEC.PS",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      }
+     ]
+    },
+    {
+     "name": "STEP01",
+     "pgm": "IEBGENER",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSUT1",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSUT2",
+       "dsn": "AWS.M2.CARDDEMO.USRSEC.PS",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    },
+    {
+     "name": "STEP02",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP03",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "IN",
+       "dsn": "AWS.M2.CARDDEMO.USRSEC.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUT",
+       "dsn": "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 8.0,
+   "utilities": [
+    "IDCAMS",
+    "IEBGENER",
+    "IEFBR14"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "ESDSRRDS",
+   "file": "ESDSRRDS.jcl",
+   "steps": [
+    {
+     "name": "PREDEL",
+     "pgm": "IEFBR14",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "DD01",
+       "dsn": "AWS.M2.CARDDEMO.ESDSRRDS.PS",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      }
+     ]
+    },
+    {
+     "name": "STEP01",
+     "pgm": "IEBGENER",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSUT1",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSUT2",
+       "dsn": "AWS.M2.CARDDEMO.ESDSRRDS.PS",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    },
+    {
+     "name": "STEP02",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP03",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "IN",
+       "dsn": "AWS.M2.CARDDEMO.ESDSRRDS.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUT",
+       "dsn": "AWS.M2.CARDDEMO.USRSEC.VSAM.ESDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP04",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "IN",
+       "dsn": "AWS.M2.CARDDEMO.ESDSRRDS.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUT",
+       "dsn": "AWS.M2.CARDDEMO.USRSEC.VSAM.RRDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 12.0,
+   "utilities": [
+    "IDCAMS",
+    "IEBGENER",
+    "IEFBR14"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "FTPJCL",
+   "file": "FTPJCL.JCL",
+   "steps": [
+    {
+     "name": "STEP1",
+     "pgm": "FTP",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 2.0,
+   "utilities": [
+    "FTP"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "INTCALC",
+   "file": "INTCALC.jcl",
+   "steps": [
+    {
+     "name": "STEP15",
+     "pgm": "CBACT04C",
+     "proc": null,
+     "parm": "2022071800",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TCATBALF",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFFIL1",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "ACCTFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "DISCGRP",
+       "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TRANSACT",
+       "dsn": "AWS.M2.CARDDEMO.SYSTRAN(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    }
+   ],
+   "comment": "Process transaction balance file and compute interest and fees.",
+   "complexity": 18.5,
+   "utilities": [],
+   "cobol": [
+    "CBACT04C"
+   ]
+  },
+  {
+   "member": "INTRDRJ1",
+   "file": "INTRDRJ1.JCL",
+   "steps": [
+    {
+     "name": "IDCAMS",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "IN",
+       "dsn": "AWS.M2.CARDEMO.FTP.TEST",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUT",
+       "dsn": "AWS.M2.CARDEMO.FTP.TEST.BKUP",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP01",
+     "pgm": "IEBGENER",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSUT1",
+       "dsn": "AWS.M2.CARDDEMO.JCL(INTRDRJ2)",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSUT2",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 4.0,
+   "utilities": [
+    "IDCAMS",
+    "IEBGENER"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "INTRDRJ2",
+   "file": "INTRDRJ2.JCL",
+   "steps": [
+    {
+     "name": "IDCAMS",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "IN",
+       "dsn": "AWS.M2.CARDEMO.FTP.TEST.BKUP",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUT",
+       "dsn": "AWS.M2.CARDEMO.FTP.TEST.BKUP.INTRDR",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 2.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "OPENFIL",
+   "file": "OPENFIL.jcl",
+   "steps": [
+    {
+     "name": "OPCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Open files in CICS region",
+   "complexity": 2.0,
+   "utilities": [
+    "SDSF"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "POSTTRAN",
+   "file": "POSTTRAN.jcl",
+   "steps": [
+    {
+     "name": "STEP15",
+     "pgm": "CBTRN02C",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRANFILE",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "DALYTRAN",
+       "dsn": "AWS.M2.CARDDEMO.DALYTRAN.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "DALYREJS",
+       "dsn": "AWS.M2.CARDDEMO.DALYREJS(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      },
+      {
+       "dd": "ACCTFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TCATBALF",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      }
+     ]
+    }
+   ],
+   "comment": "Process and load daily transaction file and create transaction category balance and update transaction master vsam",
+   "complexity": 21.2,
+   "utilities": [],
+   "cobol": [
+    "CBTRN02C"
+   ]
+  },
+  {
+   "member": "PRTCATBL",
+   "file": "PRTCATBL.jcl",
+   "steps": [
+    {
+     "name": "DELDEF",
+     "pgm": "IEFBR14",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "THEFILE",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.REPT",
+       "disp": "(MOD,DELETE)",
+       "gdg": false
+      }
+     ]
+    },
+    {
+     "name": "STEP05R",
+     "pgm": null,
+     "proc": "REPROC",
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "PRC001.FILEIN",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "PRC001.FILEOUT",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.BKUP(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10R",
+     "pgm": "SORT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SORTIN",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.BKUP(+1)",
+       "disp": "SHR",
+       "gdg": true
+      },
+      {
+       "dd": "SYMNAMES",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SORTOUT",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.REPT",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      }
+     ]
+    }
+   ],
+   "comment": "Unload the processed transaction category balance file Filter the TCATBALFions for a the parm date and sort by card num",
+   "complexity": 11.0,
+   "utilities": [
+    "IEFBR14",
+    "REPROC",
+    "SORT"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "READACCT",
+   "file": "READACCT.jcl",
+   "steps": [
+    {
+     "name": "PREDEL",
+     "pgm": "IEFBR14",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "DD01",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "DD02",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "DD03",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VBPS",
+       "disp": "(MOD,DELETE,DELETE)",
+       "gdg": false
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "CBACT01C",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "ACCTFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "OUTFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "ARRYFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "VBRCFILE",
+       "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VBPS",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 13.6,
+   "utilities": [
+    "IEFBR14"
+   ],
+   "cobol": [
+    "CBACT01C"
+   ]
+  },
+  {
+   "member": "READCARD",
+   "file": "READCARD.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "CBACT02C",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CARDFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 3.3,
+   "utilities": [],
+   "cobol": [
+    "CBACT02C"
+   ]
+  },
+  {
+   "member": "READCUST",
+   "file": "READCUST.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "CBCUS01C",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "CUSTFILE",
+       "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 3.3,
+   "utilities": [],
+   "cobol": [
+    "CBCUS01C"
+   ]
+  },
+  {
+   "member": "READXREF",
+   "file": "READXREF.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "CBACT03C",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFFILE",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 3.3,
+   "utilities": [],
+   "cobol": [
+    "CBACT03C"
+   ]
+  },
+  {
+   "member": "REPTFILE",
+   "file": "REPTFILE.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 2.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TCATBALF",
+   "file": "TCATBALF.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TCATBAL",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TCATBALV",
+       "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+       "disp": "OLD",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 6.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TRANBKP",
+   "file": "TRANBKP.jcl",
+   "steps": [
+    {
+     "name": "STEP05R",
+     "pgm": null,
+     "proc": "REPROC",
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "PRC001.FILEIN",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "PRC001.FILEOUT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.BKUP(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": "(4,LT)",
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Repro the processed transaction file",
+   "complexity": 8.0,
+   "utilities": [
+    "IDCAMS",
+    "REPROC"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TRANCATG",
+   "file": "TRANCATG.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRANCATG",
+       "dsn": "AWS.M2.CARDDEMO.TRANCATG.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TCATVSAM",
+       "dsn": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+       "disp": "OLD",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 6.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TRANFILE",
+   "file": "TRANFILE.jcl",
+   "steps": [
+    {
+     "name": "CLCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRANSACT",
+       "dsn": "AWS.M2.CARDDEMO.DALYTRAN.PS.INIT",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TRANVSAM",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP20",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP25",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP30",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "OPCIFIL",
+     "pgm": "SDSF",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "ISFOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "CMDOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "ISFIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "Close files in CICS region Opem files in CICS region",
+   "complexity": 16.0,
+   "utilities": [
+    "IDCAMS",
+    "SDSF"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TRANIDX",
+   "file": "TRANIDX.jcl",
+   "steps": [
+    {
+     "name": "STEP20",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP25",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP30",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 6.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TRANREPT",
+   "file": "TRANREPT.jcl",
+   "steps": [
+    {
+     "name": "STEP05R",
+     "pgm": null,
+     "proc": "REPROC",
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "PRC001.FILEIN",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "PRC001.FILEOUT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.BKUP(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP05R",
+     "pgm": "SORT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SORTIN",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.BKUP(+1)",
+       "disp": "SHR",
+       "gdg": true
+      },
+      {
+       "dd": "SYMNAMES",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SORTOUT",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.DALY(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10R",
+     "pgm": "CBTRN03C",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRANFILE",
+       "dsn": "AWS.M2.CARDDEMO.TRANSACT.DALY(+1)",
+       "disp": "SHR",
+       "gdg": true
+      },
+      {
+       "dd": "CARDXREF",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TRANTYPE",
+       "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TRANCATG",
+       "dsn": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "DATEPARM",
+       "dsn": "AWS.M2.CARDDEMO.DATEPARM",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TRANREPT",
+       "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+       "disp": "(NEW,CATLG,DELETE)",
+       "gdg": true
+      }
+     ]
+    }
+   ],
+   "comment": "Unload the processed transaction file Filter the transactions for a the parm date and sort by card num Produce a formatted report for processed transactions Input files Output files",
+   "complexity": 35.5,
+   "utilities": [
+    "REPROC",
+    "SORT"
+   ],
+   "cobol": [
+    "CBTRN03C"
+   ]
+  },
+  {
+   "member": "TRANTYPE",
+   "file": "TRANTYPE.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "TRANTYPE",
+       "dsn": "AWS.M2.CARDDEMO.TRANTYPE.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "TTYPVSAM",
+       "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+       "disp": "OLD",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 6.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "TXT2PDF1",
+   "file": "TXT2PDF1.JCL",
+   "steps": [
+    {
+     "name": "TXT2PDF",
+     "pgm": "IKJEFT1B",
+     "proc": null,
+     "parm": "('')",
+     "cond": "(0,NE)",
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.LBD.TXT2PDF.LOAD",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSEXEC",
+       "dsn": "AWS.M2.LBD.TXT2PDF.EXEC",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "INDD",
+       "dsn": "AWS.M2.CARDDEMO.STATEMNT.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSTSPRT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSTSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 2.0,
+   "utilities": [
+    "IKJEFT1B"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "WAITSTEP",
+   "file": "WAITSTEP.jcl",
+   "steps": [
+    {
+     "name": "WAIT",
+     "pgm": "COBSWAIT",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "STEPLIB",
+       "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSOUT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 0.1,
+   "utilities": [
+    "COBSWAIT"
+   ],
+   "cobol": []
+  },
+  {
+   "member": "XREFFILE",
+   "file": "XREFFILE.jcl",
+   "steps": [
+    {
+     "name": "STEP05",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP10",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP15",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "XREFDATA",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.PS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "XREFVSAM",
+       "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+       "disp": "SHR",
+       "gdg": false
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP20",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP25",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    },
+    {
+     "name": "STEP30",
+     "pgm": "IDCAMS",
+     "proc": null,
+     "parm": "",
+     "cond": null,
+     "dd": [
+      {
+       "dd": "SYSPRINT",
+       "dsn": null,
+       "sysout": true
+      },
+      {
+       "dd": "SYSIN",
+       "dsn": null,
+       "instream": true
+      }
+     ]
+    }
+   ],
+   "comment": "",
+   "complexity": 12.0,
+   "utilities": [
+    "IDCAMS"
+   ],
+   "cobol": []
+  }
+ ],
+ "programs": {
+  "CBACT01C": {
+   "program": "CBACT01C",
+   "file": "CBACT01C.cbl",
+   "kind": "batch",
+   "loc": 358,
+   "copies": [
+    "CODATECN",
+    "CVACT01Y"
+   ],
+   "calls": [
+    "CEE3ABD",
+    "COBDATFT"
+   ],
+   "selects": [
+    {
+     "file": "ACCTFILE-FILE",
+     "dd": "ACCTFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "OUT-FILE",
+     "dd": "OUTFILE",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "ARRY-FILE",
+     "dd": "ARRYFILE",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "VBRC-FILE",
+     "dd": "VBRCFILE",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 36,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 2,
+   "sort": 0
+  },
+  "CBACT02C": {
+   "program": "CBACT02C",
+   "file": "CBACT02C.cbl",
+   "kind": "batch",
+   "loc": 129,
+   "copies": [
+    "CVACT02Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "CARDFILE-FILE",
+     "dd": "CARDFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 11,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBACT03C": {
+   "program": "CBACT03C",
+   "file": "CBACT03C.cbl",
+   "kind": "batch",
+   "loc": 130,
+   "copies": [
+    "CVACT03Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "XREFFILE-FILE",
+     "dd": "XREFFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 11,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBACT04C": {
+   "program": "CBACT04C",
+   "file": "CBACT04C.cbl",
+   "kind": "batch",
+   "loc": 552,
+   "copies": [
+    "CVACT01Y",
+    "CVACT03Y",
+    "CVTRA01Y",
+    "CVTRA02Y",
+    "CVTRA05Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "TCATBAL-FILE",
+     "dd": "TCATBALF",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "XREF-FILE",
+     "dd": "XREFFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "ACCOUNT-FILE",
+     "dd": "ACCTFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "I-O"
+     ]
+    },
+    {
+     "file": "DISCGRP-FILE",
+     "dd": "DISCGRP",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "TRANSACT-FILE",
+     "dd": "TRANSACT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 57,
+   "compute": 5,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBCUS01C": {
+   "program": "CBCUS01C",
+   "file": "CBCUS01C.cbl",
+   "kind": "batch",
+   "loc": 130,
+   "copies": [
+    "CVCUS01Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "CUSTFILE-FILE",
+     "dd": "CUSTFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 11,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBEXPORT": {
+   "program": "CBEXPORT",
+   "file": "CBEXPORT.cbl",
+   "kind": "batch",
+   "loc": 396,
+   "copies": [
+    "CVACT01Y",
+    "CVACT02Y",
+    "CVACT03Y",
+    "CVCUS01Y",
+    "CVEXPORT",
+    "CVTRA05Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "CUSTOMER-INPUT",
+     "dd": "CUSTFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "ACCOUNT-INPUT",
+     "dd": "ACCTFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "XREF-INPUT",
+     "dd": "XREFFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "TRANSACTION-INPUT",
+     "dd": "TRANSACT",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "CARD-INPUT",
+     "dd": "CARDFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "EXPORT-OUTPUT",
+     "dd": "EXPFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 50,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBIMPORT": {
+   "program": "CBIMPORT",
+   "file": "CBIMPORT.cbl",
+   "kind": "batch",
+   "loc": 337,
+   "copies": [
+    "CVACT01Y",
+    "CVACT02Y",
+    "CVACT03Y",
+    "CVCUS01Y",
+    "CVEXPORT",
+    "CVTRA05Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "EXPORT-INPUT",
+     "dd": "EXPFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "CUSTOMER-OUTPUT",
+     "dd": "CUSTOUT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "ACCOUNT-OUTPUT",
+     "dd": "ACCTOUT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "XREF-OUTPUT",
+     "dd": "XREFOUT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "TRANSACTION-OUTPUT",
+     "dd": "TRNXOUT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "CARD-OUTPUT",
+     "dd": "CARDOUT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "ERROR-OUTPUT",
+     "dd": "ERROUT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 30,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBSTM03A": {
+   "program": "CBSTM03A",
+   "file": "CBSTM03A.CBL",
+   "kind": "batch",
+   "loc": 784,
+   "copies": [
+    "COSTM01",
+    "CUSTREC",
+    "CVACT01Y",
+    "CVACT03Y"
+   ],
+   "calls": [
+    "CBSTM03B",
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "STMT-FILE",
+     "dd": "STMTFILE",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "HTML-FILE",
+     "dd": "HTMLFILE",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 14,
+   "perform": 33,
+   "compute": 4,
+   "rounded": 0,
+   "comp3": 1,
+   "sort": 0
+  },
+  "CBSTM03B": {
+   "program": "CBSTM03B",
+   "file": "CBSTM03B.CBL",
+   "kind": "batch",
+   "loc": 162,
+   "copies": [],
+   "calls": [],
+   "selects": [
+    {
+     "file": "TRNX-FILE",
+     "dd": "TRNXFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "XREF-FILE",
+     "dd": "XREFFILE",
+     "org": "INDEXED",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "CUST-FILE",
+     "dd": "CUSTFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "ACCT-FILE",
+     "dd": "ACCTFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 13,
+   "perform": 4,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBTRN01C": {
+   "program": "CBTRN01C",
+   "file": "CBTRN01C.cbl",
+   "kind": "batch",
+   "loc": 415,
+   "copies": [
+    "CVACT01Y",
+    "CVACT02Y",
+    "CVACT03Y",
+    "CVCUS01Y",
+    "CVTRA05Y",
+    "CVTRA06Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "DALYTRAN-FILE",
+     "dd": "DALYTRAN",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "CUSTOMER-FILE",
+     "dd": "CUSTFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "XREF-FILE",
+     "dd": "XREFFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "CARD-FILE",
+     "dd": "CARDFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "ACCOUNT-FILE",
+     "dd": "ACCTFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "TRANSACT-FILE",
+     "dd": "TRANFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 43,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBTRN02C": {
+   "program": "CBTRN02C",
+   "file": "CBTRN02C.cbl",
+   "kind": "batch",
+   "loc": 619,
+   "copies": [
+    "CVACT01Y",
+    "CVACT03Y",
+    "CVTRA01Y",
+    "CVTRA05Y",
+    "CVTRA06Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "DALYTRAN-FILE",
+     "dd": "DALYTRAN",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "TRANSACT-FILE",
+     "dd": "TRANFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "XREF-FILE",
+     "dd": "XREFFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "DALYREJS-FILE",
+     "dd": "DALYREJS",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "ACCOUNT-FILE",
+     "dd": "ACCTFILE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "I-O"
+     ]
+    },
+    {
+     "file": "TCATBAL-FILE",
+     "dd": "TCATBALF",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "I-O"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 62,
+   "compute": 1,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CBTRN03C": {
+   "program": "CBTRN03C",
+   "file": "CBTRN03C.cbl",
+   "kind": "batch",
+   "loc": 545,
+   "copies": [
+    "CVACT03Y",
+    "CVTRA03Y",
+    "CVTRA04Y",
+    "CVTRA05Y",
+    "CVTRA07Y"
+   ],
+   "calls": [
+    "CEE3ABD"
+   ],
+   "selects": [
+    {
+     "file": "TRANSACT-FILE",
+     "dd": "TRANFILE",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "XREF-FILE",
+     "dd": "CARDXREF",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "TRANTYPE-FILE",
+     "dd": "TRANTYPE",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "TRANCATG-FILE",
+     "dd": "TRANCATG",
+     "org": "INDEXED",
+     "access": "RANDOM",
+     "open": [
+      "INPUT"
+     ]
+    },
+    {
+     "file": "REPORT-FILE",
+     "dd": "TRANREPT",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "OUTPUT"
+     ]
+    },
+    {
+     "file": "DATE-PARMS-FILE",
+     "dd": "DATEPARM",
+     "org": "SEQUENTIAL",
+     "access": "SEQUENTIAL",
+     "open": [
+      "INPUT"
+     ]
+    }
+   ],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 73,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 2,
+   "sort": 0
+  },
+  "COACTUPC": {
+   "program": "COACTUPC",
+   "file": "COACTUPC.cbl",
+   "kind": "online",
+   "loc": 3368,
+   "copies": [
+    "COACTUP",
+    "COCOM01Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSLKPCDY",
+    "CSMSG01Y",
+    "CSMSG02Y",
+    "CSSETATY",
+    "CSUSR01Y",
+    "CSUTLDPY",
+    "CVACT01Y",
+    "CVACT03Y",
+    "CVCRD01Y",
+    "CVCUS01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 17,
+   "exec_sql": 0,
+   "goto": 51,
+   "perform": 61,
+   "compute": 5,
+   "rounded": 0,
+   "comp3": 4,
+   "sort": 0
+  },
+  "COACTVWC": {
+   "program": "COACTVWC",
+   "file": "COACTVWC.cbl",
+   "kind": "online",
+   "loc": 703,
+   "copies": [
+    "COACTVW",
+    "COCOM01Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSMSG02Y",
+    "CSUSR01Y",
+    "CVACT01Y",
+    "CVACT02Y",
+    "CVACT03Y",
+    "CVCRD01Y",
+    "CVCUS01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 15,
+   "exec_sql": 0,
+   "goto": 9,
+   "perform": 18,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COADM01C": {
+   "program": "COADM01C",
+   "file": "COADM01C.cbl",
+   "kind": "online",
+   "loc": 189,
+   "copies": [
+    "COADM01",
+    "COADM02Y",
+    "COCOM01Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 7,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 15,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COBIL00C": {
+   "program": "COBIL00C",
+   "file": "COBIL00C.cbl",
+   "kind": "online",
+   "loc": 420,
+   "copies": [
+    "COBIL00",
+    "COCOM01Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CVACT01Y",
+    "CVACT03Y",
+    "CVTRA05Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 13,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 38,
+   "compute": 1,
+   "rounded": 0,
+   "comp3": 1,
+   "sort": 0
+  },
+  "COBSWAIT": {
+   "program": "COBSWAIT",
+   "file": "COBSWAIT.cbl",
+   "kind": "online",
+   "loc": 13,
+   "copies": [],
+   "calls": [
+    "MVSWAIT"
+   ],
+   "selects": [],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 0,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COCRDLIC": {
+   "program": "COCRDLIC",
+   "file": "COCRDLIC.cbl",
+   "kind": "online",
+   "loc": 1093,
+   "copies": [
+    "COCOM01Y",
+    "COCRDLI",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "CVACT02Y",
+    "CVCRD01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 18,
+   "exec_sql": 0,
+   "goto": 16,
+   "perform": 33,
+   "compute": 2,
+   "rounded": 0,
+   "comp3": 1,
+   "sort": 0
+  },
+  "COCRDSLC": {
+   "program": "COCRDSLC",
+   "file": "COCRDSLC.cbl",
+   "kind": "online",
+   "loc": 642,
+   "copies": [
+    "COCOM01Y",
+    "COCRDSL",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSMSG02Y",
+    "CSUSR01Y",
+    "CVACT02Y",
+    "CVCRD01Y",
+    "CVCUS01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 14,
+   "exec_sql": 0,
+   "goto": 9,
+   "perform": 19,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COCRDUPC": {
+   "program": "COCRDUPC",
+   "file": "COCRDUPC.cbl",
+   "kind": "online",
+   "loc": 1194,
+   "copies": [
+    "COCOM01Y",
+    "COCRDUP",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSMSG02Y",
+    "CSUSR01Y",
+    "CVACT02Y",
+    "CVCRD01Y",
+    "CVCUS01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 12,
+   "exec_sql": 0,
+   "goto": 21,
+   "perform": 26,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COMEN01C": {
+   "program": "COMEN01C",
+   "file": "COMEN01C.cbl",
+   "kind": "online",
+   "loc": 213,
+   "copies": [
+    "COCOM01Y",
+    "COMEN01",
+    "COMEN02Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 7,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 15,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CORPT00C": {
+   "program": "CORPT00C",
+   "file": "CORPT00C.cbl",
+   "kind": "online",
+   "loc": 498,
+   "copies": [
+    "COCOM01Y",
+    "CORPT00",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CVTRA05Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [
+    "CSUTLDTC"
+   ],
+   "selects": [],
+   "exec_cics": 7,
+   "exec_sql": 0,
+   "goto": 1,
+   "perform": 35,
+   "compute": 7,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COSGN00C": {
+   "program": "COSGN00C",
+   "file": "COSGN00C.cbl",
+   "kind": "online",
+   "loc": 172,
+   "copies": [
+    "COCOM01Y",
+    "COSGN00",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 10,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 11,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COTRN00C": {
+   "program": "COTRN00C",
+   "file": "COTRN00C.cbl",
+   "kind": "online",
+   "loc": 529,
+   "copies": [
+    "COCOM01Y",
+    "COTRN00",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CVTRA05Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 10,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 46,
+   "compute": 4,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COTRN01C": {
+   "program": "COTRN01C",
+   "file": "COTRN01C.cbl",
+   "kind": "online",
+   "loc": 231,
+   "copies": [
+    "COCOM01Y",
+    "COTRN01",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CVTRA05Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 5,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 17,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COTRN02C": {
+   "program": "COTRN02C",
+   "file": "COTRN02C.cbl",
+   "kind": "online",
+   "loc": 614,
+   "copies": [
+    "COCOM01Y",
+    "COTRN02",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CVACT01Y",
+    "CVACT03Y",
+    "CVTRA05Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [
+    "CSUTLDTC"
+   ],
+   "selects": [],
+   "exec_cics": 11,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 61,
+   "compute": 4,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COUSR00C": {
+   "program": "COUSR00C",
+   "file": "COUSR00C.cbl",
+   "kind": "online",
+   "loc": 531,
+   "copies": [
+    "COCOM01Y",
+    "COTTL01Y",
+    "COUSR00",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 11,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 45,
+   "compute": 4,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COUSR01C": {
+   "program": "COUSR01C",
+   "file": "COUSR01C.cbl",
+   "kind": "online",
+   "loc": 198,
+   "copies": [
+    "COCOM01Y",
+    "COTTL01Y",
+    "COUSR01",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 5,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 20,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COUSR02C": {
+   "program": "COUSR02C",
+   "file": "COUSR02C.cbl",
+   "kind": "online",
+   "loc": 303,
+   "copies": [
+    "COCOM01Y",
+    "COTTL01Y",
+    "COUSR02",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 6,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 31,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "COUSR03C": {
+   "program": "COUSR03C",
+   "file": "COUSR03C.cbl",
+   "kind": "online",
+   "loc": 251,
+   "copies": [
+    "COCOM01Y",
+    "COTTL01Y",
+    "COUSR03",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+   ],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 6,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 26,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  },
+  "CSUTLDTC": {
+   "program": "CSUTLDTC",
+   "file": "CSUTLDTC.cbl",
+   "kind": "util",
+   "loc": 114,
+   "copies": [],
+   "calls": [],
+   "selects": [],
+   "exec_cics": 0,
+   "exec_sql": 0,
+   "goto": 0,
+   "perform": 1,
+   "compute": 0,
+   "rounded": 0,
+   "comp3": 0,
+   "sort": 0
+  }
+ },
+ "copybooks": {
+  "COADM02Y": {
+   "copybook": "COADM02Y",
+   "file": "COADM02Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 1,
+   "occurs": 1,
+   "fields": 22
+  },
+  "COCOM01Y": {
+   "copybook": "COCOM01Y",
+   "file": "COCOM01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 16
+  },
+  "CODATECN": {
+   "copybook": "CODATECN",
+   "file": "CODATECN.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 4,
+   "occurs": 0,
+   "fields": 25
+  },
+  "COMEN02Y": {
+   "copybook": "COMEN02Y",
+   "file": "COMEN02Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 1,
+   "occurs": 1,
+   "fields": 49
+  },
+  "COSTM01": {
+   "copybook": "COSTM01",
+   "file": "COSTM01.CPY",
+   "comp3": 0,
+   "zoned_signed": 1,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 14
+  },
+  "COTTL01Y": {
+   "copybook": "COTTL01Y",
+   "file": "COTTL01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 3
+  },
+  "CSDAT01Y": {
+   "copybook": "CSDAT01Y",
+   "file": "CSDAT01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 2,
+   "occurs": 0,
+   "fields": 32
+  },
+  "CSLKPCDY": {
+   "copybook": "CSLKPCDY",
+   "file": "CSLKPCDY.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 4
+  },
+  "CSMSG01Y": {
+   "copybook": "CSMSG01Y",
+   "file": "CSMSG01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 2
+  },
+  "CSMSG02Y": {
+   "copybook": "CSMSG02Y",
+   "file": "CSMSG02Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 4
+  },
+  "CSSETATY": {
+   "copybook": "CSSETATY",
+   "file": "CSSETATY.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 0
+  },
+  "CSSTRPFY": {
+   "copybook": "CSSTRPFY",
+   "file": "CSSTRPFY.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 0
+  },
+  "CSUSR01Y": {
+   "copybook": "CSUSR01Y",
+   "file": "CSUSR01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 6
+  },
+  "CSUTLDPY": {
+   "copybook": "CSUTLDPY",
+   "file": "CSUTLDPY.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 0
+  },
+  "CSUTLDWY": {
+   "copybook": "CSUTLDWY",
+   "file": "CSUTLDWY.cpy",
+   "comp3": 0,
+   "zoned_signed": 2,
+   "redefines": 9,
+   "occurs": 0,
+   "fields": 33
+  },
+  "CUSTREC": {
+   "copybook": "CUSTREC",
+   "file": "CUSTREC.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 19
+  },
+  "CVACT01Y": {
+   "copybook": "CVACT01Y",
+   "file": "CVACT01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 5,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 13
+  },
+  "CVACT02Y": {
+   "copybook": "CVACT02Y",
+   "file": "CVACT02Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 7
+  },
+  "CVACT03Y": {
+   "copybook": "CVACT03Y",
+   "file": "CVACT03Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 4
+  },
+  "CVCRD01Y": {
+   "copybook": "CVCRD01Y",
+   "file": "CVCRD01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 3,
+   "occurs": 0,
+   "fields": 12
+  },
+  "CVCUS01Y": {
+   "copybook": "CVCUS01Y",
+   "file": "CVCUS01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 19
+  },
+  "CVEXPORT": {
+   "copybook": "CVEXPORT",
+   "file": "CVEXPORT.cpy",
+   "comp3": 4,
+   "zoned_signed": 2,
+   "redefines": 6,
+   "occurs": 2,
+   "fields": 63
+  },
+  "CVTRA01Y": {
+   "copybook": "CVTRA01Y",
+   "file": "CVTRA01Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 1,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 5
+  },
+  "CVTRA02Y": {
+   "copybook": "CVTRA02Y",
+   "file": "CVTRA02Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 1,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 5
+  },
+  "CVTRA03Y": {
+   "copybook": "CVTRA03Y",
+   "file": "CVTRA03Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 3
+  },
+  "CVTRA04Y": {
+   "copybook": "CVTRA04Y",
+   "file": "CVTRA04Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 4
+  },
+  "CVTRA05Y": {
+   "copybook": "CVTRA05Y",
+   "file": "CVTRA05Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 1,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 14
+  },
+  "CVTRA06Y": {
+   "copybook": "CVTRA06Y",
+   "file": "CVTRA06Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 1,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 14
+  },
+  "CVTRA07Y": {
+   "copybook": "CVTRA07Y",
+   "file": "CVTRA07Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 39
+  },
+  "UNUSED1Y": {
+   "copybook": "UNUSED1Y",
+   "file": "UNUSED1Y.cpy",
+   "comp3": 0,
+   "zoned_signed": 0,
+   "redefines": 0,
+   "occurs": 0,
+   "fields": 6
+  }
+ },
+ "procs": [
+  "REPROC",
+  "TRANREPT"
+ ],
+ "datasets": {
+  "AWS.M2.CARDDEMO.ACCTDATA.PS": {
+   "read": [
+    "ACCTFILE"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS": {
+   "read": [
+    "ACCTFILE",
+    "CBEXPORT",
+    "CREASTMT",
+    "READACCT"
+   ],
+   "write": [
+    "INTCALC",
+    "POSTTRAN"
+   ]
+  },
+  "AWS.M2.CARDDEMO.CARDDATA.PS": {
+   "read": [
+    "CARDFILE"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS": {
+   "read": [
+    "CARDFILE",
+    "CBEXPORT",
+    "READCARD"
+   ],
+   "write": []
+  },
+  "OEM.CICSTS.V05R06M0.CICS.SDFHLOAD": {
+   "read": [
+    "CBADMCDJ"
+   ],
+   "write": []
+  },
+  "OEM.CICSTS.DFHCSD": {
+   "read": [
+    "CBADMCDJ"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS": {
+   "read": [
+    "CBEXPORT",
+    "CREASTMT",
+    "CUSTFILE",
+    "READCUST"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS": {
+   "read": [
+    "CBEXPORT",
+    "CREASTMT",
+    "INTCALC",
+    "POSTTRAN",
+    "READXREF",
+    "TRANREPT",
+    "XREFFILE"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS": {
+   "read": [
+    "CBEXPORT",
+    "COMBTRAN",
+    "CREASTMT",
+    "TRANBKP",
+    "TRANFILE",
+    "TRANREPT"
+   ],
+   "write": [
+    "POSTTRAN"
+   ]
+  },
+  "AWS.M2.CARDDEMO.EXPORT.DATA": {
+   "read": [
+    "CBIMPORT"
+   ],
+   "write": [
+    "CBEXPORT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.CUSTDATA.IMPORT": {
+   "read": [],
+   "write": [
+    "CBIMPORT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.ACCTDATA.IMPORT": {
+   "read": [],
+   "write": [
+    "CBIMPORT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.CARDXREF.IMPORT": {
+   "read": [],
+   "write": [
+    "CBIMPORT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRANSACT.IMPORT": {
+   "read": [],
+   "write": [
+    "CBIMPORT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.IMPORT.ERRORS": {
+   "read": [],
+   "write": [
+    "CBIMPORT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRANSACT.BKUP": {
+   "read": [
+    "COMBTRAN",
+    "TRANREPT"
+   ],
+   "write": [
+    "TRANBKP",
+    "TRANREPT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.SYSTRAN": {
+   "read": [
+    "COMBTRAN"
+   ],
+   "write": [
+    "INTCALC"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRANSACT.COMBINED": {
+   "read": [
+    "COMBTRAN"
+   ],
+   "write": [
+    "COMBTRAN"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRXFL.SEQ": {
+   "read": [
+    "CREASTMT"
+   ],
+   "write": [
+    "CREASTMT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS": {
+   "read": [
+    "CREASTMT"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.STATEMNT.HTML": {
+   "read": [],
+   "write": [
+    "CREASTMT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.STATEMNT.PS": {
+   "read": [
+    "TXT2PDF1"
+   ],
+   "write": [
+    "CREASTMT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.CUSTDATA.PS": {
+   "read": [
+    "CUSTFILE"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANTYPE.PS": {
+   "read": [
+    "DEFGDGD",
+    "TRANTYPE"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANTYPE.BKUP": {
+   "read": [],
+   "write": [
+    "DEFGDGD"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRANCATG.PS": {
+   "read": [
+    "DEFGDGD",
+    "TRANCATG"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANCATG.PS.BKUP": {
+   "read": [],
+   "write": [
+    "DEFGDGD"
+   ]
+  },
+  "AWS.M2.CARDDEMO.DISCGRP.PS": {
+   "read": [
+    "DEFGDGD",
+    "DISCGRP"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.DISCGRP.BKUP": {
+   "read": [],
+   "write": [
+    "DEFGDGD"
+   ]
+  },
+  "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS": {
+   "read": [
+    "INTCALC"
+   ],
+   "write": [
+    "DISCGRP"
+   ]
+  },
+  "AWS.M2.CARDDEMO.USRSEC.PS": {
+   "read": [
+    "DUSRSECJ"
+   ],
+   "write": [
+    "DUSRSECJ"
+   ]
+  },
+  "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS": {
+   "read": [
+    "DUSRSECJ"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.ESDSRRDS.PS": {
+   "read": [
+    "ESDSRRDS"
+   ],
+   "write": [
+    "ESDSRRDS"
+   ]
+  },
+  "AWS.M2.CARDDEMO.USRSEC.VSAM.ESDS": {
+   "read": [
+    "ESDSRRDS"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.USRSEC.VSAM.RRDS": {
+   "read": [
+    "ESDSRRDS"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS": {
+   "read": [
+    "INTCALC",
+    "PRTCATBL"
+   ],
+   "write": [
+    "POSTTRAN",
+    "TCATBALF"
+   ]
+  },
+  "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH": {
+   "read": [
+    "INTCALC"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDEMO.FTP.TEST": {
+   "read": [
+    "INTRDRJ1"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDEMO.FTP.TEST.BKUP": {
+   "read": [
+    "INTRDRJ1",
+    "INTRDRJ2"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.JCL(INTRDRJ2)": {
+   "read": [
+    "INTRDRJ1"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDEMO.FTP.TEST.BKUP.INTRDR": {
+   "read": [
+    "INTRDRJ2"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.DALYTRAN.PS": {
+   "read": [
+    "POSTTRAN"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.DALYREJS": {
+   "read": [],
+   "write": [
+    "POSTTRAN"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TCATBALF.REPT": {
+   "read": [],
+   "write": [
+    "PRTCATBL"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TCATBALF.BKUP": {
+   "read": [
+    "PRTCATBL"
+   ],
+   "write": [
+    "PRTCATBL"
+   ]
+  },
+  "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP": {
+   "read": [],
+   "write": [
+    "READACCT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS": {
+   "read": [],
+   "write": [
+    "READACCT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.ACCTDATA.VBPS": {
+   "read": [],
+   "write": [
+    "READACCT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TCATBALF.PS": {
+   "read": [
+    "TCATBALF"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS": {
+   "read": [
+    "TRANREPT"
+   ],
+   "write": [
+    "TRANCATG"
+   ]
+  },
+  "AWS.M2.CARDDEMO.DALYTRAN.PS.INIT": {
+   "read": [
+    "TRANFILE"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANSACT.DALY": {
+   "read": [
+    "TRANREPT"
+   ],
+   "write": [
+    "TRANREPT"
+   ]
+  },
+  "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS": {
+   "read": [
+    "TRANREPT"
+   ],
+   "write": [
+    "TRANTYPE"
+   ]
+  },
+  "AWS.M2.CARDDEMO.DATEPARM": {
+   "read": [
+    "TRANREPT"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.TRANREPT": {
+   "read": [],
+   "write": [
+    "TRANREPT"
+   ]
+  },
+  "AWS.M2.LBD.TXT2PDF.LOAD": {
+   "read": [
+    "TXT2PDF1"
+   ],
+   "write": []
+  },
+  "AWS.M2.LBD.TXT2PDF.EXEC": {
+   "read": [
+    "TXT2PDF1"
+   ],
+   "write": []
+  },
+  "AWS.M2.CARDDEMO.CARDXREF.PS": {
+   "read": [
+    "XREFFILE"
+   ],
+   "write": []
+  }
+ },
+ "program_jobs": {
+  "IDCAMS": [
+   "ACCTFILE",
+   "CARDFILE",
+   "CBEXPORT",
+   "COMBTRAN",
+   "CREASTMT",
+   "CUSTFILE",
+   "DALYREJS",
+   "DEFCUST",
+   "DEFGDGB",
+   "DEFGDGD",
+   "DISCGRP",
+   "DUSRSECJ",
+   "ESDSRRDS",
+   "INTRDRJ1",
+   "INTRDRJ2",
+   "REPTFILE",
+   "TCATBALF",
+   "TRANBKP",
+   "TRANCATG",
+   "TRANFILE",
+   "TRANIDX",
+   "TRANTYPE",
+   "XREFFILE"
+  ],
+  "SDSF": [
+   "CARDFILE",
+   "CLOSEFIL",
+   "CUSTFILE",
+   "OPENFIL",
+   "TRANFILE"
+  ],
+  "DFHCSDUP": [
+   "CBADMCDJ"
+  ],
+  "CBEXPORT": [
+   "CBEXPORT"
+  ],
+  "CBIMPORT": [
+   "CBIMPORT"
+  ],
+  "SORT": [
+   "COMBTRAN",
+   "CREASTMT",
+   "PRTCATBL",
+   "TRANREPT"
+  ],
+  "IEFBR14": [
+   "CREASTMT",
+   "DUSRSECJ",
+   "ESDSRRDS",
+   "PRTCATBL",
+   "READACCT"
+  ],
+  "CBSTM03A": [
+   "CREASTMT"
+  ],
+  "IEBGENER": [
+   "DEFGDGD",
+   "DUSRSECJ",
+   "ESDSRRDS",
+   "INTRDRJ1"
+  ],
+  "FTP": [
+   "FTPJCL"
+  ],
+  "CBACT04C": [
+   "INTCALC"
+  ],
+  "CBTRN02C": [
+   "POSTTRAN"
+  ],
+  "CBACT01C": [
+   "READACCT"
+  ],
+  "CBACT02C": [
+   "READCARD"
+  ],
+  "CBCUS01C": [
+   "READCUST"
+  ],
+  "CBACT03C": [
+   "READXREF"
+  ],
+  "CBTRN03C": [
+   "TRANREPT"
+  ],
+  "IKJEFT1B": [
+   "TXT2PDF1"
+  ],
+  "COBSWAIT": [
+   "WAITSTEP"
+  ],
+  "CBSTM03B": [
+   "CREASTMT (via CBSTM03A)"
+  ]
+ }
+}
