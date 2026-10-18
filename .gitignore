@@ -1,0 +1,9 @@
+vendor/
+out/
+target/
+*.so
+*.o
+__pycache__/
+.idea/
+*.iml
+.env

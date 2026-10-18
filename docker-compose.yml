@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: carddemo
+      POSTGRES_PASSWORD: carddemo
+      POSTGRES_DB: carddemo
+    ports: ["5432:5432"]
+    volumes:
+      - ./migration/snapshots:/snapshots:ro

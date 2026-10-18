@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/carddemo
+    username: carddemo
+    password: carddemo
+  batch:
+    jdbc:
+      initialize-schema: always
+c2c:
+  business-date: ${CD_BUSINESS_DATE:2022-07-18}
+  out-dir: ../../out/modern
