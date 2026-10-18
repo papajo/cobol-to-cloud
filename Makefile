@@ -10,7 +10,7 @@ MVN ?= $(if $(shell command -v mvn),mvn,docker run --rm $(DUSER) \
 	-v $(CURDIR):/work -w /work -v $(CURDIR)/.cache/m2:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2 \
 	maven:3.9-eclipse-temurin-21 mvn -Duser.home=/var/maven)
 
-.PHONY: fetch inventory seed-data legacy-build legacy-load legacy-unload legacy-run golden golden-all modern-test parity db-up db-reset
+.PHONY: db-schema db-load db-reconcile fetch inventory seed-data legacy-build legacy-load legacy-unload legacy-run golden golden-all modern-test parity db-up db-reset
 
 inventory:
 	python3 mapper/inventory.py vendor/carddemo/app docs
@@ -64,5 +64,12 @@ parity:
 db-up:
 	docker compose up -d db
 
-db-reset:
-	docker compose exec -T db psql -U carddemo -d carddemo -f /snapshots/baseline.sql
+# Phase 4 (ADR 0006): schema generated from copybooks; load seed; prove byte round trip
+db-schema:
+	python3 migration/gen_schema.py .
+
+db-load db-reset:
+	migration/db.sh load
+
+db-reconcile:
+	migration/db.sh reconcile

@@ -14,7 +14,7 @@ Capstone #5. Migrate AWS CardDemo (COBOL/JCL/VSAM/DB2) batch to Spring Batch + P
 legacy/      Dockerfile, fetch + build scripts, jcl-runner/, cics-shim/ (deferred)
 golden/      captured outputs per job (input/, output/, manifest.json)
 harness/     compare.py — byte/field-level parity vs golden
-migration/   copybook2ddl.py, ebcdic/COMP-3 loaders, reconcile.py
+migration/   copybook.py (layouts), gen_schema.py, pgload.py + db.sh (load/round trip), ebcdic2ascii.py
 modern/      codec/ (EBCDIC + COMP-3 Java lib), batch/ (Spring Batch jobs)
 mapper/      COBOL/JCL parsers for Legacy Code Mapper (#2)
 docs/        assessment/, adr/, risk-register.md, inventory.md
@@ -32,7 +32,10 @@ make golden JOB=X     # harness/golden.sh: baseline → after= prereqs → run �
 make golden-all       # all jobs in golden/jobs.txt
 make modern-test      # mvn -f modern/pom.xml verify
 make parity JOB=X     # run modern job, compare vs golden/X
-make db-up / db-reset # Postgres via docker compose; reset to snapshot
+make db-up            # Postgres 16 via docker compose
+make db-schema        # copybooks → migration/layouts/*.json + modern/batch/.../db/schema.sql (generated)
+make db-load          # (= db-reset) apply schema, load out/seed
+make db-reconcile     # export ORDER BY pk → fixed records → byte-compare with seed
 ```
 
 ## Conventions
@@ -44,7 +47,7 @@ make db-up / db-reset # Postgres via docker compose; reset to snapshot
 - Business checks in `harness/checks/` are independent of the COBOL (e.g. `posttran_reconcile.py`) and must pass on legacy and modern output.
 - Numerics: signed zoned → `codec.ZonedDecimal`, COMP-3 → `codec.PackedDecimal`. Money: `BigDecimal` only; scale from PIC clause; rounding mode must match COBOL (`ROUNDED` → HALF_UP, else DOWN/truncate). No `double`.
 - Ordering: compare keys in EBCDIC collation (`codec.EbcdicCollator`) wherever COBOL SORT/VSAM key order is observable.
-- Copybook is the schema: DDL and record classes are generated from `vendor/carddemo/app/cpy`, never hand-written.
+- Copybook is the schema: layouts, DDL and record codecs are generated from `vendor/carddemo/app/cpy` (ADR 0006), never hand-written. FILLER is `bytea`, kept byte-exact.
 - Decisions → `docs/adr/NNNN-title.md`. Risks → `docs/risk-register.md`. Defects/discoveries → `docs/findings.md`.
 - Legacy defects are reproduced for parity first, then fixed in a separate, labelled change — never silently.
 - Commits: conventional (`feat(batch):`, `fix(codec):`, `test(golden):`).

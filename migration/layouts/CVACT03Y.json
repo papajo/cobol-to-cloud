@@ -1,0 +1,52 @@
+{
+ "copybook": "CVACT03Y",
+ "record": "CARD-XREF-RECORD",
+ "lrecl": 50,
+ "fields": [
+  {
+   "name": "XREF-CARD-NUM",
+   "column": "xref_card_num",
+   "offset": 0,
+   "length": 16,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(16)",
+   "filler": false
+  },
+  {
+   "name": "XREF-CUST-ID",
+   "column": "xref_cust_id",
+   "offset": 16,
+   "length": 9,
+   "kind": "9",
+   "digits": 9,
+   "scale": 0,
+   "pic": "9(09)",
+   "filler": false
+  },
+  {
+   "name": "XREF-ACCT-ID",
+   "column": "xref_acct_id",
+   "offset": 25,
+   "length": 11,
+   "kind": "9",
+   "digits": 11,
+   "scale": 0,
+   "pic": "9(11)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 36,
+   "length": 14,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(14)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

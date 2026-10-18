@@ -4,11 +4,11 @@ Mainframe batch modernization of [AWS CardDemo](https://github.com/aws-samples/a
 
 | Phase | Status |
 |---|---|
-| 0. Assessment & inventory | ☐ |
+| 0. Assessment & inventory | ✅ |
 | 1. Dependency map (mapper) | ☐ |
-| 2. Legacy runtime (GnuCOBOL + JCL runner) | ☐ |
-| 3. Golden capture | ☐ |
-| 4. Data migration (copybook → DDL, EBCDIC, COMP-3) | ☐ |
+| 2. Legacy runtime (GnuCOBOL + JCL runner) | ✅ |
+| 3. Golden capture | 🟡 READ×4, POSTTRAN, INTCALC |
+| 4. Data migration (copybook → DDL, EBCDIC, COMP-3) | ✅ 11 tables, byte round trip |
 | 5. Batch modernization (JCL → Spring Batch) | ☐ |
 
 See `CLAUDE.md` for commands and conventions, `docs/adr/` for decisions.

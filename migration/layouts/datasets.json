@@ -1,0 +1,169 @@
+{
+ "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS": {
+  "table": "account",
+  "copybook": "CVACT01Y",
+  "lrecl": 300,
+  "pk": [
+   "acct_id"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.ACCTDATA.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   11
+  ]
+ },
+ "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS": {
+  "table": "card",
+  "copybook": "CVACT02Y",
+  "lrecl": 150,
+  "pk": [
+   "card_num"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.CARDDATA.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   16
+  ]
+ },
+ "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS": {
+  "table": "card_xref",
+  "copybook": "CVACT03Y",
+  "lrecl": 50,
+  "pk": [
+   "xref_card_num"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.CARDXREF.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   16
+  ]
+ },
+ "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS": {
+  "table": "customer",
+  "copybook": "CVCUS01Y",
+  "lrecl": 500,
+  "pk": [
+   "cust_id"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.CUSTDATA.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   9
+  ]
+ },
+ "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS": {
+  "table": "tran_cat_balance",
+  "copybook": "CVTRA01Y",
+  "lrecl": 50,
+  "pk": [
+   "trancat_acct_id",
+   "trancat_type_cd",
+   "trancat_cd"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.TCATBALF.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   17
+  ]
+ },
+ "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS": {
+  "table": "disclosure_group",
+  "copybook": "CVTRA02Y",
+  "lrecl": 50,
+  "pk": [
+   "dis_acct_group_id",
+   "dis_tran_type_cd",
+   "dis_tran_cat_cd"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.DISCGRP.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   16
+  ]
+ },
+ "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS": {
+  "table": "tran_type",
+  "copybook": "CVTRA03Y",
+  "lrecl": 60,
+  "pk": [
+   "tran_type"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.TRANTYPE.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   2
+  ]
+ },
+ "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS": {
+  "table": "tran_category",
+  "copybook": "CVTRA04Y",
+  "lrecl": 60,
+  "pk": [
+   "tran_type_cd",
+   "tran_cat_cd"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.TRANCATG.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   6
+  ]
+ },
+ "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS": {
+  "table": "transaction",
+  "copybook": "CVTRA05Y",
+  "lrecl": 350,
+  "pk": [
+   "tran_id"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.DALYTRAN.PS.INIT",
+  "drop_placeholder": true,
+  "key": [
+   0,
+   16
+  ]
+ },
+ "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS": {
+  "table": "user_security",
+  "copybook": "CSUSR01Y",
+  "lrecl": 80,
+  "pk": [
+   "sec_usr_id"
+  ],
+  "flat": false,
+  "seed": "AWS.M2.CARDDEMO.USRSEC.PS",
+  "drop_placeholder": false,
+  "key": [
+   0,
+   8
+  ]
+ },
+ "AWS.M2.CARDDEMO.DALYTRAN.PS": {
+  "table": "daily_transaction",
+  "copybook": "CVTRA06Y",
+  "lrecl": 350,
+  "pk": [
+   "seq"
+  ],
+  "flat": true,
+  "seed": "AWS.M2.CARDDEMO.DALYTRAN.PS",
+  "drop_placeholder": false,
+  "key": null
+ }
+}

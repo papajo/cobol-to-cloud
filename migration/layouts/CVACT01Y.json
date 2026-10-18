@@ -1,0 +1,151 @@
+{
+ "copybook": "CVACT01Y",
+ "record": "ACCOUNT-RECORD",
+ "lrecl": 300,
+ "fields": [
+  {
+   "name": "ACCT-ID",
+   "column": "acct_id",
+   "offset": 0,
+   "length": 11,
+   "kind": "9",
+   "digits": 11,
+   "scale": 0,
+   "pic": "9(11)",
+   "filler": false
+  },
+  {
+   "name": "ACCT-ACTIVE-STATUS",
+   "column": "acct_active_status",
+   "offset": 11,
+   "length": 1,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(01)",
+   "filler": false
+  },
+  {
+   "name": "ACCT-CURR-BAL",
+   "column": "acct_curr_bal",
+   "offset": 12,
+   "length": 12,
+   "kind": "S9",
+   "digits": 12,
+   "scale": 2,
+   "pic": "S9(10)V99",
+   "filler": false
+  },
+  {
+   "name": "ACCT-CREDIT-LIMIT",
+   "column": "acct_credit_limit",
+   "offset": 24,
+   "length": 12,
+   "kind": "S9",
+   "digits": 12,
+   "scale": 2,
+   "pic": "S9(10)V99",
+   "filler": false
+  },
+  {
+   "name": "ACCT-CASH-CREDIT-LIMIT",
+   "column": "acct_cash_credit_limit",
+   "offset": 36,
+   "length": 12,
+   "kind": "S9",
+   "digits": 12,
+   "scale": 2,
+   "pic": "S9(10)V99",
+   "filler": false
+  },
+  {
+   "name": "ACCT-OPEN-DATE",
+   "column": "acct_open_date",
+   "offset": 48,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "ACCT-EXPIRAION-DATE",
+   "column": "acct_expiraion_date",
+   "offset": 58,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "ACCT-REISSUE-DATE",
+   "column": "acct_reissue_date",
+   "offset": 68,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "ACCT-CURR-CYC-CREDIT",
+   "column": "acct_curr_cyc_credit",
+   "offset": 78,
+   "length": 12,
+   "kind": "S9",
+   "digits": 12,
+   "scale": 2,
+   "pic": "S9(10)V99",
+   "filler": false
+  },
+  {
+   "name": "ACCT-CURR-CYC-DEBIT",
+   "column": "acct_curr_cyc_debit",
+   "offset": 90,
+   "length": 12,
+   "kind": "S9",
+   "digits": 12,
+   "scale": 2,
+   "pic": "S9(10)V99",
+   "filler": false
+  },
+  {
+   "name": "ACCT-ADDR-ZIP",
+   "column": "acct_addr_zip",
+   "offset": 102,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "ACCT-GROUP-ID",
+   "column": "acct_group_id",
+   "offset": 112,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 122,
+   "length": 178,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(178)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

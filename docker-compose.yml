@@ -6,5 +6,3 @@ services:
       POSTGRES_PASSWORD: carddemo
       POSTGRES_DB: carddemo
     ports: ["5432:5432"]
-    volumes:
-      - ./migration/snapshots:/snapshots:ro

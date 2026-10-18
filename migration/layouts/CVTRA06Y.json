@@ -1,0 +1,162 @@
+{
+ "copybook": "CVTRA06Y",
+ "record": "DALYTRAN-RECORD",
+ "lrecl": 350,
+ "fields": [
+  {
+   "name": "DALYTRAN-ID",
+   "column": "dalytran_id",
+   "offset": 0,
+   "length": 16,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(16)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-TYPE-CD",
+   "column": "dalytran_type_cd",
+   "offset": 16,
+   "length": 2,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(02)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-CAT-CD",
+   "column": "dalytran_cat_cd",
+   "offset": 18,
+   "length": 4,
+   "kind": "9",
+   "digits": 4,
+   "scale": 0,
+   "pic": "9(04)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-SOURCE",
+   "column": "dalytran_source",
+   "offset": 22,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-DESC",
+   "column": "dalytran_desc",
+   "offset": 32,
+   "length": 100,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(100)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-AMT",
+   "column": "dalytran_amt",
+   "offset": 132,
+   "length": 11,
+   "kind": "S9",
+   "digits": 11,
+   "scale": 2,
+   "pic": "S9(09)V99",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-MERCHANT-ID",
+   "column": "dalytran_merchant_id",
+   "offset": 143,
+   "length": 9,
+   "kind": "9",
+   "digits": 9,
+   "scale": 0,
+   "pic": "9(09)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-MERCHANT-NAME",
+   "column": "dalytran_merchant_name",
+   "offset": 152,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-MERCHANT-CITY",
+   "column": "dalytran_merchant_city",
+   "offset": 202,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-MERCHANT-ZIP",
+   "column": "dalytran_merchant_zip",
+   "offset": 252,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-CARD-NUM",
+   "column": "dalytran_card_num",
+   "offset": 262,
+   "length": 16,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(16)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-ORIG-TS",
+   "column": "dalytran_orig_ts",
+   "offset": 278,
+   "length": 26,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(26)",
+   "filler": false
+  },
+  {
+   "name": "DALYTRAN-PROC-TS",
+   "column": "dalytran_proc_ts",
+   "offset": 304,
+   "length": 26,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(26)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 330,
+   "length": 20,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(20)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

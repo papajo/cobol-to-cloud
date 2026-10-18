@@ -1,0 +1,162 @@
+{
+ "copybook": "CVTRA05Y",
+ "record": "TRAN-RECORD",
+ "lrecl": 350,
+ "fields": [
+  {
+   "name": "TRAN-ID",
+   "column": "tran_id",
+   "offset": 0,
+   "length": 16,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(16)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-TYPE-CD",
+   "column": "tran_type_cd",
+   "offset": 16,
+   "length": 2,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(02)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-CAT-CD",
+   "column": "tran_cat_cd",
+   "offset": 18,
+   "length": 4,
+   "kind": "9",
+   "digits": 4,
+   "scale": 0,
+   "pic": "9(04)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-SOURCE",
+   "column": "tran_source",
+   "offset": 22,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-DESC",
+   "column": "tran_desc",
+   "offset": 32,
+   "length": 100,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(100)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-AMT",
+   "column": "tran_amt",
+   "offset": 132,
+   "length": 11,
+   "kind": "S9",
+   "digits": 11,
+   "scale": 2,
+   "pic": "S9(09)V99",
+   "filler": false
+  },
+  {
+   "name": "TRAN-MERCHANT-ID",
+   "column": "tran_merchant_id",
+   "offset": 143,
+   "length": 9,
+   "kind": "9",
+   "digits": 9,
+   "scale": 0,
+   "pic": "9(09)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-MERCHANT-NAME",
+   "column": "tran_merchant_name",
+   "offset": 152,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-MERCHANT-CITY",
+   "column": "tran_merchant_city",
+   "offset": 202,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-MERCHANT-ZIP",
+   "column": "tran_merchant_zip",
+   "offset": 252,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-CARD-NUM",
+   "column": "tran_card_num",
+   "offset": 262,
+   "length": 16,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(16)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-ORIG-TS",
+   "column": "tran_orig_ts",
+   "offset": 278,
+   "length": 26,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(26)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-PROC-TS",
+   "column": "tran_proc_ts",
+   "offset": 304,
+   "length": 26,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(26)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 330,
+   "length": 20,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(20)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

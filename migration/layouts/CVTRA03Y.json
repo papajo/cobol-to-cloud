@@ -1,0 +1,41 @@
+{
+ "copybook": "CVTRA03Y",
+ "record": "TRAN-TYPE-RECORD",
+ "lrecl": 60,
+ "fields": [
+  {
+   "name": "TRAN-TYPE",
+   "column": "tran_type",
+   "offset": 0,
+   "length": 2,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(02)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-TYPE-DESC",
+   "column": "tran_type_desc",
+   "offset": 2,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 52,
+   "length": 8,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(08)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

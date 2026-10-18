@@ -1,0 +1,217 @@
+{
+ "copybook": "CVCUS01Y",
+ "record": "CUSTOMER-RECORD",
+ "lrecl": 500,
+ "fields": [
+  {
+   "name": "CUST-ID",
+   "column": "cust_id",
+   "offset": 0,
+   "length": 9,
+   "kind": "9",
+   "digits": 9,
+   "scale": 0,
+   "pic": "9(09)",
+   "filler": false
+  },
+  {
+   "name": "CUST-FIRST-NAME",
+   "column": "cust_first_name",
+   "offset": 9,
+   "length": 25,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(25)",
+   "filler": false
+  },
+  {
+   "name": "CUST-MIDDLE-NAME",
+   "column": "cust_middle_name",
+   "offset": 34,
+   "length": 25,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(25)",
+   "filler": false
+  },
+  {
+   "name": "CUST-LAST-NAME",
+   "column": "cust_last_name",
+   "offset": 59,
+   "length": 25,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(25)",
+   "filler": false
+  },
+  {
+   "name": "CUST-ADDR-LINE-1",
+   "column": "cust_addr_line_1",
+   "offset": 84,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "CUST-ADDR-LINE-2",
+   "column": "cust_addr_line_2",
+   "offset": 134,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "CUST-ADDR-LINE-3",
+   "column": "cust_addr_line_3",
+   "offset": 184,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "CUST-ADDR-STATE-CD",
+   "column": "cust_addr_state_cd",
+   "offset": 234,
+   "length": 2,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(02)",
+   "filler": false
+  },
+  {
+   "name": "CUST-ADDR-COUNTRY-CD",
+   "column": "cust_addr_country_cd",
+   "offset": 236,
+   "length": 3,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(03)",
+   "filler": false
+  },
+  {
+   "name": "CUST-ADDR-ZIP",
+   "column": "cust_addr_zip",
+   "offset": 239,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "CUST-PHONE-NUM-1",
+   "column": "cust_phone_num_1",
+   "offset": 249,
+   "length": 15,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(15)",
+   "filler": false
+  },
+  {
+   "name": "CUST-PHONE-NUM-2",
+   "column": "cust_phone_num_2",
+   "offset": 264,
+   "length": 15,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(15)",
+   "filler": false
+  },
+  {
+   "name": "CUST-SSN",
+   "column": "cust_ssn",
+   "offset": 279,
+   "length": 9,
+   "kind": "9",
+   "digits": 9,
+   "scale": 0,
+   "pic": "9(09)",
+   "filler": false
+  },
+  {
+   "name": "CUST-GOVT-ISSUED-ID",
+   "column": "cust_govt_issued_id",
+   "offset": 288,
+   "length": 20,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(20)",
+   "filler": false
+  },
+  {
+   "name": "CUST-DOB-YYYY-MM-DD",
+   "column": "cust_dob_yyyy_mm_dd",
+   "offset": 308,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "CUST-EFT-ACCOUNT-ID",
+   "column": "cust_eft_account_id",
+   "offset": 318,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "CUST-PRI-CARD-HOLDER-IND",
+   "column": "cust_pri_card_holder_ind",
+   "offset": 328,
+   "length": 1,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(01)",
+   "filler": false
+  },
+  {
+   "name": "CUST-FICO-CREDIT-SCORE",
+   "column": "cust_fico_credit_score",
+   "offset": 329,
+   "length": 3,
+   "kind": "9",
+   "digits": 3,
+   "scale": 0,
+   "pic": "9(03)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 332,
+   "length": 168,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(168)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

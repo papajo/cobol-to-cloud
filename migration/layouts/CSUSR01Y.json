@@ -1,0 +1,74 @@
+{
+ "copybook": "CSUSR01Y",
+ "record": "SEC-USER-DATA",
+ "lrecl": 80,
+ "fields": [
+  {
+   "name": "SEC-USR-ID",
+   "column": "sec_usr_id",
+   "offset": 0,
+   "length": 8,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(08)",
+   "filler": false
+  },
+  {
+   "name": "SEC-USR-FNAME",
+   "column": "sec_usr_fname",
+   "offset": 8,
+   "length": 20,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(20)",
+   "filler": false
+  },
+  {
+   "name": "SEC-USR-LNAME",
+   "column": "sec_usr_lname",
+   "offset": 28,
+   "length": 20,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(20)",
+   "filler": false
+  },
+  {
+   "name": "SEC-USR-PWD",
+   "column": "sec_usr_pwd",
+   "offset": 48,
+   "length": 8,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(08)",
+   "filler": false
+  },
+  {
+   "name": "SEC-USR-TYPE",
+   "column": "sec_usr_type",
+   "offset": 56,
+   "length": 1,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(01)",
+   "filler": false
+  },
+  {
+   "name": "SEC-USR-FILLER",
+   "column": "sec_usr_filler",
+   "offset": 57,
+   "length": 23,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(23)",
+   "filler": false
+  }
+ ],
+ "groups": {}
+}

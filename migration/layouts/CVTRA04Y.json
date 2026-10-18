@@ -1,0 +1,57 @@
+{
+ "copybook": "CVTRA04Y",
+ "record": "TRAN-CAT-RECORD",
+ "lrecl": 60,
+ "fields": [
+  {
+   "name": "TRAN-TYPE-CD",
+   "column": "tran_type_cd",
+   "offset": 0,
+   "length": 2,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(02)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-CAT-CD",
+   "column": "tran_cat_cd",
+   "offset": 2,
+   "length": 4,
+   "kind": "9",
+   "digits": 4,
+   "scale": 0,
+   "pic": "9(04)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-CAT-TYPE-DESC",
+   "column": "tran_cat_type_desc",
+   "offset": 6,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 56,
+   "length": 4,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(04)",
+   "filler": true
+  }
+ ],
+ "groups": {
+  "TRAN-CAT-KEY": [
+   0,
+   6
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+{
+  "_doc": "Dataset \u2192 table mapping for phase 4. Layout comes from the copybook, keys from CardDemo's IDCAMS DEFINE (legacy/vsam/load.py). 'flat' datasets keep record order in a seq column. drop_placeholder: records whose key is all LOW-VALUES are VSAM 'not empty' placeholders (TRANSACT INIT) \u2014 excluded on load and in reconcile, with a count (ADR 0006).",
+  "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS": {"copybook": "CVACT01Y", "table": "account"},
+  "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS": {"copybook": "CVACT02Y", "table": "card"},
+  "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS": {"copybook": "CVACT03Y", "table": "card_xref"},
+  "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS": {"copybook": "CVCUS01Y", "table": "customer"},
+  "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS": {"copybook": "CVTRA01Y", "table": "tran_cat_balance"},
+  "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS": {"copybook": "CVTRA02Y", "table": "disclosure_group"},
+  "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS": {"copybook": "CVTRA03Y", "table": "tran_type"},
+  "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS": {"copybook": "CVTRA04Y", "table": "tran_category"},
+  "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS": {"copybook": "CVTRA05Y", "table": "transaction", "drop_placeholder": true},
+  "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS": {"copybook": "CSUSR01Y", "table": "user_security"},
+  "AWS.M2.CARDDEMO.DALYTRAN.PS": {"copybook": "CVTRA06Y", "table": "daily_transaction", "flat": true}
+}

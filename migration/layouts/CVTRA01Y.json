@@ -1,0 +1,68 @@
+{
+ "copybook": "CVTRA01Y",
+ "record": "TRAN-CAT-BAL-RECORD",
+ "lrecl": 50,
+ "fields": [
+  {
+   "name": "TRANCAT-ACCT-ID",
+   "column": "trancat_acct_id",
+   "offset": 0,
+   "length": 11,
+   "kind": "9",
+   "digits": 11,
+   "scale": 0,
+   "pic": "9(11)",
+   "filler": false
+  },
+  {
+   "name": "TRANCAT-TYPE-CD",
+   "column": "trancat_type_cd",
+   "offset": 11,
+   "length": 2,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(02)",
+   "filler": false
+  },
+  {
+   "name": "TRANCAT-CD",
+   "column": "trancat_cd",
+   "offset": 13,
+   "length": 4,
+   "kind": "9",
+   "digits": 4,
+   "scale": 0,
+   "pic": "9(04)",
+   "filler": false
+  },
+  {
+   "name": "TRAN-CAT-BAL",
+   "column": "tran_cat_bal",
+   "offset": 17,
+   "length": 11,
+   "kind": "S9",
+   "digits": 11,
+   "scale": 2,
+   "pic": "S9(09)V99",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 28,
+   "length": 22,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(22)",
+   "filler": true
+  }
+ ],
+ "groups": {
+  "TRAN-CAT-KEY": [
+   0,
+   17
+  ]
+ }
+}

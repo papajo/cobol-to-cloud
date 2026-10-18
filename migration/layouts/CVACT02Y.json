@@ -1,0 +1,85 @@
+{
+ "copybook": "CVACT02Y",
+ "record": "CARD-RECORD",
+ "lrecl": 150,
+ "fields": [
+  {
+   "name": "CARD-NUM",
+   "column": "card_num",
+   "offset": 0,
+   "length": 16,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(16)",
+   "filler": false
+  },
+  {
+   "name": "CARD-ACCT-ID",
+   "column": "card_acct_id",
+   "offset": 16,
+   "length": 11,
+   "kind": "9",
+   "digits": 11,
+   "scale": 0,
+   "pic": "9(11)",
+   "filler": false
+  },
+  {
+   "name": "CARD-CVV-CD",
+   "column": "card_cvv_cd",
+   "offset": 27,
+   "length": 3,
+   "kind": "9",
+   "digits": 3,
+   "scale": 0,
+   "pic": "9(03)",
+   "filler": false
+  },
+  {
+   "name": "CARD-EMBOSSED-NAME",
+   "column": "card_embossed_name",
+   "offset": 30,
+   "length": 50,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(50)",
+   "filler": false
+  },
+  {
+   "name": "CARD-EXPIRAION-DATE",
+   "column": "card_expiraion_date",
+   "offset": 80,
+   "length": 10,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(10)",
+   "filler": false
+  },
+  {
+   "name": "CARD-ACTIVE-STATUS",
+   "column": "card_active_status",
+   "offset": 90,
+   "length": 1,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(01)",
+   "filler": false
+  },
+  {
+   "name": "FILLER-1",
+   "column": "filler_1",
+   "offset": 91,
+   "length": 59,
+   "kind": "X",
+   "digits": null,
+   "scale": 0,
+   "pic": "X(59)",
+   "filler": true
+  }
+ ],
+ "groups": {}
+}

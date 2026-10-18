@@ -24,9 +24,9 @@ def strip_jcl(text):
     return "\n".join(l[:72] for l in text.splitlines() if not l.startswith("//*"))
 
 
-def parse_catalog():
+def parse_catalog(jcl_dir=None):
     clusters, aixes, repro = {}, [], {}
-    for f in sorted(JCL.iterdir()):
+    for f in sorted(Path(jcl_dir or JCL).iterdir()):
         if f.suffix.lower() != ".jcl":
             continue
         text = strip_jcl(f.read_text(errors="replace"))
